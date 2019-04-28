@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FactionScoreView" customModule="Crowns" customModuleProvider="target">
+            <connections>
+                <outlet property="circleIndicator" destination="P7D-6p-5mx" id="lL3-yj-mYf"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Y8M-K9-YnC"/>
+                <outlet property="factionSymbol" destination="J13-6e-DJw" id="tWZ-UO-Wys"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="397" height="291"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7D-6p-5mx">
+                    <rect key="frame" x="191" y="10" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="E2h-4b-urp"/>
+                        <constraint firstAttribute="width" constant="15" id="wpG-Ue-zmq"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J13-6e-DJw" customClass="ScoreView" customModule="Crowns" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="35" width="397" height="232"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.25" green="0.16" blue="0.17000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="P7D-6p-5mx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8c2-qw-Mbg"/>
+                <constraint firstItem="J13-6e-DJw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DC9-Ez-EQ9"/>
+                <constraint firstAttribute="bottom" secondItem="J13-6e-DJw" secondAttribute="bottom" constant="24" id="FY0-Oa-ymK"/>
+                <constraint firstItem="P7D-6p-5mx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Gha-mv-3wL"/>
+                <constraint firstItem="J13-6e-DJw" firstAttribute="top" secondItem="P7D-6p-5mx" secondAttribute="bottom" constant="10" id="iX4-NT-aEc"/>
+                <constraint firstAttribute="trailing" secondItem="J13-6e-DJw" secondAttribute="trailing" id="leH-1d-aoU"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="22.463768115942031" y="-29.799107142857142"/>
+        </view>
+    </objects>
+</document>
