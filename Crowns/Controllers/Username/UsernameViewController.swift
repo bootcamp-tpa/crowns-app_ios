@@ -4,7 +4,10 @@ class UsernameViewController: UIViewController {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var usernameTextField: UITextField!
     private lazy var interactor: UsernameViewInteractor = {
-        let interactor = UsernameViewInteractor(webService: WebServiceImp())
+        let interactor = UsernameViewInteractor(
+            storage: UserDefaultsStorageImp(),
+            webService: WebServiceImp()
+        )
         interactor.delegate = self
         return interactor
     }()
