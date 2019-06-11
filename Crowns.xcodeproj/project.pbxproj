@@ -11,6 +11,8 @@
 		2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */; };
 		2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494C22AFB7CC00973E6F /* ApiError.swift */; };
 		2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Endpoint.swift */; };
+		2D0E495422AFE87E00973E6F /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495322AFE87E00973E6F /* Choice.swift */; };
+		2D0E495622AFEF9700973E6F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495522AFEF9700973E6F /* Deck.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -62,6 +64,8 @@
 		2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewInteractor.swift; sourceTree = "<group>"; };
 		2D0E494C22AFB7CC00973E6F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2D0E495122AFD69000973E6F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2D0E495322AFE87E00973E6F /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		2D0E495522AFEF9700973E6F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				4D25565C2251189A004D5EFC /* Model.swift */,
 				2DFA382622AFA8A4000471E2 /* User.swift */,
 				2DFA382822AFA8E0000471E2 /* Card.swift */,
+				2D0E495522AFEF9700973E6F /* Deck.swift */,
+				2D0E495322AFE87E00973E6F /* Choice.swift */,
 				2D0E494C22AFB7CC00973E6F /* ApiError.swift */,
 			);
 			path = Models;
@@ -275,7 +281,6 @@
 				65C235ED1242E3F4A3455876 /* Pods-CrownsUITests.debug.xcconfig */,
 				38268D0922AEF92BDA4E7DAD /* Pods-CrownsUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -530,7 +535,9 @@
 				4DE57A7E224BC12800D37B57 /* AppDelegate.swift in Sources */,
 				2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */,
 				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
+				2D0E495622AFEF9700973E6F /* Deck.swift in Sources */,
 				4D25565A22510EE1004D5EFC /* FactionScoreView.swift in Sources */,
+				2D0E495422AFE87E00973E6F /* Choice.swift in Sources */,
 				2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */,
 				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
 				2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */,
