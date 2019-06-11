@@ -54,8 +54,7 @@ extension GameViewController : CardViewDelegate {
 
 extension GameViewController {
     static func instantiate(withUser user: User) -> UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        let controller: GameViewController = .instantiate(storyboardId: "GameViewController")
         controller.interactor = GameViewInteractor(user: user)
         return controller
     }

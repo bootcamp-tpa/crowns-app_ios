@@ -15,6 +15,9 @@
 		2D0E495622AFEF9700973E6F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495522AFEF9700973E6F /* Deck.swift */; };
 		2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */; };
 		2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495922AFF38C00973E6F /* Dependencies.swift */; };
+		2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */; };
+		2D0E495F22AFFF5600973E6F /* DeathViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */; };
+		2D0E496222AFFFEE00973E6F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496122AFFFEE00973E6F /* UIViewController.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -70,6 +73,9 @@
 		2D0E495522AFEF9700973E6F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewInteractor.swift; sourceTree = "<group>"; };
 		2D0E495922AFF38C00973E6F /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
+		2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewInteractor.swift; sourceTree = "<group>"; };
+		2D0E496122AFFFEE00973E6F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -162,6 +168,23 @@
 			path = WebService;
 			sourceTree = "<group>";
 		};
+		2D0E495B22AFFF2200973E6F /* Death */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */,
+				2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */,
+			);
+			path = Death;
+			sourceTree = "<group>";
+		};
+		2D0E496022AFFFE400973E6F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E496122AFFFEE00973E6F /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2DFA382322AFA7F0000471E2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +250,7 @@
 		4DE57A7C224BC12800D37B57 /* Crowns */ = {
 			isa = PBXGroup;
 			children = (
+				2D0E496022AFFFE400973E6F /* Extensions */,
 				2DFA382322AFA7F0000471E2 /* Services */,
 				4DE8C2F1225A53720073DCD9 /* Controllers */,
 				4D25565B2251187F004D5EFC /* Models */,
@@ -261,6 +285,7 @@
 		4DE8C2F1225A53720073DCD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2D0E495B22AFFF2200973E6F /* Death */,
 				2D0E494922AFB66900973E6F /* Username */,
 				2D0E494722AFB62B00973E6F /* Game */,
 			);
@@ -544,13 +569,16 @@
 				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
 				2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */,
 				2D0E495622AFEF9700973E6F /* Deck.swift in Sources */,
+				2D0E496222AFFFEE00973E6F /* UIViewController.swift in Sources */,
 				4D25565A22510EE1004D5EFC /* FactionScoreView.swift in Sources */,
+				2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */,
 				2D0E495422AFE87E00973E6F /* Choice.swift in Sources */,
 				2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */,
 				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
 				2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */,
 				4D25565422510E91004D5EFC /* FactionsScoreView.swift in Sources */,
 				2DFA382722AFA8A4000471E2 /* User.swift in Sources */,
+				2D0E495F22AFFF5600973E6F /* DeathViewInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
