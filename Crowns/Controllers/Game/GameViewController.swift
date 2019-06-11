@@ -7,16 +7,13 @@
 import UIKit
 
 class GameViewController: UIViewController {
-
-    @IBOutlet weak var deckView: DeckView!
-    @IBOutlet weak var gameStatsView: GameStatsView!
-    @IBOutlet weak var factionsScoreView: FactionsScoreView!
-
+    @IBOutlet private weak var deckView: DeckView!
+    @IBOutlet private weak var gameStatsView: GameStatsView!
+    @IBOutlet private weak var factionsScoreView: FactionsScoreView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         deckView.cardDelegate = self
-        
     }
 
 }
@@ -50,3 +47,11 @@ extension GameViewController : CardViewDelegate {
     }
 }
 
+extension GameViewController {
+    static func instantiate(withUser user: User) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        
+        return controller
+    }
+}

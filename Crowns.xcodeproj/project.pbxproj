@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494522AFB27100973E6F /* UsernameViewController.swift */; };
+		2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */; };
+		2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494C22AFB7CC00973E6F /* ApiError.swift */; };
+		2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Endpoint.swift */; };
+		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
+		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
+		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
+		2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */; };
 		4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D24EFF222525E5A00B87D5B /* ScoreView.swift */; };
 		4D25565022510760004D5EFC /* GameStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D25564F22510760004D5EFC /* GameStatsView.swift */; };
 		4D2556522251076D004D5EFC /* GameStatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2556512251076D004D5EFC /* GameStatsView.xib */; };
@@ -45,6 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D0E494522AFB27100973E6F /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
+		2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewInteractor.swift; sourceTree = "<group>"; };
+		2D0E494C22AFB7CC00973E6F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		2D0E495122AFD69000973E6F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		4D24EFF222525E5A00B87D5B /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4D25564F22510760004D5EFC /* GameStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsView.swift; sourceTree = "<group>"; };
 		4D2556512251076D004D5EFC /* GameStatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameStatsView.xib; sourceTree = "<group>"; };
@@ -96,10 +112,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D0E494722AFB62B00973E6F /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				4DE57A7F224BC12800D37B57 /* GameViewController.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		2D0E494922AFB66900973E6F /* Username */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E494522AFB27100973E6F /* UsernameViewController.swift */,
+				2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */,
+			);
+			path = Username;
+			sourceTree = "<group>";
+		};
+		2D0E495022AFD66000973E6F /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				2DFA382422AFA7FB000471E2 /* WebService.swift */,
+				2D0E495122AFD69000973E6F /* Endpoint.swift */,
+			);
+			path = WebService;
+			sourceTree = "<group>";
+		};
+		2DFA382322AFA7F0000471E2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2D0E495022AFD66000973E6F /* WebService */,
+				2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		4D25565B2251187F004D5EFC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4D25565C2251189A004D5EFC /* Model.swift */,
+				2DFA382622AFA8A4000471E2 /* User.swift */,
+				2DFA382822AFA8E0000471E2 /* Card.swift */,
+				2D0E494C22AFB7CC00973E6F /* ApiError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +198,7 @@
 		4DE57A7C224BC12800D37B57 /* Crowns */ = {
 			isa = PBXGroup;
 			children = (
+				2DFA382322AFA7F0000471E2 /* Services */,
 				4DE8C2F1225A53720073DCD9 /* Controllers */,
 				4D25565B2251187F004D5EFC /* Models */,
 				4DBE4704224C04FB00882C05 /* Views */,
@@ -177,7 +232,8 @@
 		4DE8C2F1225A53720073DCD9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4DE57A7F224BC12800D37B57 /* GameViewController.swift */,
+				2D0E494922AFB66900973E6F /* Username */,
+				2D0E494722AFB62B00973E6F /* Game */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,15 +373,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				4D25565D2251189A004D5EFC /* Model.swift in Sources */,
+				2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */,
 				4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */,
 				4DE57A80224BC12800D37B57 /* GameViewController.swift in Sources */,
 				4D3EC8AC224C170B0000CF5C /* CardView.swift in Sources */,
 				4D25565022510760004D5EFC /* GameStatsView.swift in Sources */,
 				4DE8C2F3225A58910073DCD9 /* DeckView.swift in Sources */,
 				4DE57A7E224BC12800D37B57 /* AppDelegate.swift in Sources */,
+				2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */,
+				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
 				4D25565A22510EE1004D5EFC /* FactionScoreView.swift in Sources */,
+				2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */,
+				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
+				2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */,
 				4D25565422510E91004D5EFC /* FactionsScoreView.swift in Sources */,
+				2DFA382722AFA8A4000471E2 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
