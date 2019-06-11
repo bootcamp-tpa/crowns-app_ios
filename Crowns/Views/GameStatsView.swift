@@ -6,13 +6,17 @@
 
 import UIKit
 
-@IBDesignable
+struct GameStatsViewModel {
+    let score: String
+    let years: String
+}
+
 class GameStatsView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var yearsLabel: UILabel!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet private weak var yearsLabel: UILabel!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -24,7 +28,16 @@ class GameStatsView: UIView {
         initSubviews()
     }
     
-    func initSubviews() {
+    func setUsername(username: String) {
+        usernameLabel.text = username
+    }
+    
+    func update(withModel model: GameStatsViewModel) {
+        scoreLabel.text = model.score
+        yearsLabel.text = model.years
+    }
+    
+    private func initSubviews() {
         // standard initialization logic
         let bundle = Bundle(for: type(of: self))
         let nibName = type(of: self).description().components(separatedBy: ".").last!
@@ -36,5 +49,4 @@ class GameStatsView: UIView {
         
         addSubview(contentView)
     }
-
 }
