@@ -16,10 +16,13 @@ protocol UsernameViewInteractorDelegate: AnyObject {
 
 class UsernameViewInteractor {
     weak var delegate: UsernameViewInteractorDelegate!
+    private let storage: UserDefaultsStorage
     private let webService: WebService
     private var username: String?
     
-    init(webService: WebService) {
+    init(storage: UserDefaultsStorage,
+         webService: WebService) {
+        self.storage = storage
         self.webService = webService
     }
     
@@ -39,11 +42,14 @@ class UsernameViewInteractor {
         delegate.showLoadingIndicator(true)
         webService.createUser(
             withUsername: username,
-            completion: { [delegate] result in
+            completion: { [delegate, storage] result in
                 delegate?.showLoadingIndicator(false)
                 switch result {
-                case .success(let user): delegate?.showGameController(forUser: user)
-                case .failure(let error): delegate?.showErrorAlert(withMessage: error.title)
+                case .success(let user):
+                    storage.store(user: user)
+                    delegate?.showGameController(forUser: user)
+                case .failure(let error):
+                    delegate?.showErrorAlert(withMessage: error.title)
                 }
         })
     }
