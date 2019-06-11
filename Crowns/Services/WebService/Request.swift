@@ -5,10 +5,14 @@ struct Request {
         return request(path: "/user/create", method: .post, params: ["name": username])
     }
     
+    static func getDeck() -> URLRequest {
+        return request(path: "/game/get", method: .get)
+    }
+    
     private static func request(
         path: String,
         method: Method,
-        params: [String: Any]?
+        params: [String: Any]? = nil
     ) -> URLRequest {
         let baseURL = URL(string: "http://0.0.0.0:8081")!
         let urlWithPath = baseURL.appendingPathComponent(path)

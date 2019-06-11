@@ -10,10 +10,11 @@
 		2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494522AFB27100973E6F /* UsernameViewController.swift */; };
 		2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */; };
 		2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494C22AFB7CC00973E6F /* ApiError.swift */; };
-		2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Endpoint.swift */; };
+		2D0E495222AFD69000973E6F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Request.swift */; };
 		2D0E495422AFE87E00973E6F /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495322AFE87E00973E6F /* Choice.swift */; };
 		2D0E495622AFEF9700973E6F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495522AFEF9700973E6F /* Deck.swift */; };
 		2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */; };
+		2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495922AFF38C00973E6F /* Dependencies.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -64,10 +65,11 @@
 		2D0E494522AFB27100973E6F /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
 		2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewInteractor.swift; sourceTree = "<group>"; };
 		2D0E494C22AFB7CC00973E6F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		2D0E495122AFD69000973E6F /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2D0E495122AFD69000973E6F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2D0E495322AFE87E00973E6F /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		2D0E495522AFEF9700973E6F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewInteractor.swift; sourceTree = "<group>"; };
+		2D0E495922AFF38C00973E6F /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -155,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				2DFA382422AFA7FB000471E2 /* WebService.swift */,
-				2D0E495122AFD69000973E6F /* Endpoint.swift */,
+				2D0E495122AFD69000973E6F /* Request.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -165,6 +167,7 @@
 			children = (
 				2D0E495022AFD66000973E6F /* WebService */,
 				2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */,
+				2D0E495922AFF38C00973E6F /* Dependencies.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */,
 				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				4D25565D2251189A004D5EFC /* Model.swift in Sources */,
 				2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */,
@@ -536,7 +540,7 @@
 				4D25565022510760004D5EFC /* GameStatsView.swift in Sources */,
 				4DE8C2F3225A58910073DCD9 /* DeckView.swift in Sources */,
 				4DE57A7E224BC12800D37B57 /* AppDelegate.swift in Sources */,
-				2D0E495222AFD69000973E6F /* Endpoint.swift in Sources */,
+				2D0E495222AFD69000973E6F /* Request.swift in Sources */,
 				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
 				2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */,
 				2D0E495622AFEF9700973E6F /* Deck.swift in Sources */,

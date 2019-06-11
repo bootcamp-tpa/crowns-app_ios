@@ -3,14 +3,23 @@ import UIKit
 class UsernameViewController: UIViewController {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var usernameTextField: UITextField!
+    
     private lazy var interactor: UsernameViewInteractor = {
         let interactor = UsernameViewInteractor(
-            storage: UserDefaultsStorageImp(),
-            webService: WebServiceImp()
+            storage: Dependencies.instance.userDefaultsStorage,
+            webService: Dependencies.instance.webService
         )
         interactor.delegate = self
         return interactor
     }()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // TODO - move to splash screen once created
+        if let user = Dependencies.instance.userDefaultsStorage.getUser() {
+            showGameController(forUser: user)
+        }
+    }
 
     @IBAction private func textFieldValueChanged(_ sender: UITextField) {
         interactor.textFieldValueDidChange(to: sender.text)

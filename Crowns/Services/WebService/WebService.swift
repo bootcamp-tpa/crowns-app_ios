@@ -1,16 +1,30 @@
 import Foundation
 
 protocol WebService {
-    func createUser(withUsername username: String, completion: @escaping (Result<User, ApiError>) -> Void)
+    func createUser(
+        withUsername username: String,
+        completion: @escaping (Result<User, ApiError>) -> Void
+    )
+    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
     private lazy var session = URLSession(configuration: .default)
     private static let decoder = JSONDecoder()
     
-    func createUser(withUsername username: String, completion: @escaping (Result<User, ApiError>) -> Void) {
+    func createUser(
+        withUsername username: String,
+        completion: @escaping (Result<User, ApiError>) -> Void
+    ) {
         request(
             request: Request.createUser(username: username),
+            completion: completion
+        )
+    }
+    
+    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void) {
+        request(
+            request: Request.getDeck(),
             completion: completion
         )
     }
