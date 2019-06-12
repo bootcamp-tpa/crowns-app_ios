@@ -28,7 +28,7 @@ class FactionScoreView: UIView {
 
     var score: Int = 50 {
         didSet {
-            let percentage = NSNumber(value: score / 100)
+            let percentage = NSNumber(value: Float(score) / 100)
             factionSymbol.percentage = percentage
         }
     }
@@ -39,7 +39,7 @@ class FactionScoreView: UIView {
             case .none:
                 circleIndicatorLayer.path = nil
             case .decrease:
-                circleIndicatorLayer.path = UIBezierPath(ovalIn: CGRect(x: 2.5, y: 2.5, width: 10, height: 10)).cgPath;
+                circleIndicatorLayer.path = UIBezierPath(ovalIn: CGRect(x: 5, y: 5, width: 5, height: 5)).cgPath;
             case .increase:
                 circleIndicatorLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 15, height: 15)).cgPath;
             }

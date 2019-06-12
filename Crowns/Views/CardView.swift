@@ -99,10 +99,8 @@ class CardView: UIView {
             
             if completeness == 1 {
                 recognizedChoice = .right
-                print("right")
             } else if completeness == -1 {
                 recognizedChoice = .left
-                print("left")
             } else {
                 recognizedChoice = .none
             }
@@ -118,8 +116,8 @@ class CardView: UIView {
             let radians = CGFloat(degrees * .pi / 180)
             rotate = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         case .ended:
-            delegate?.cardView(self, didFinalizeChoice: recognizedChoice)
             if recognizedChoice != .none {
+                delegate?.cardView(self, didFinalizeChoice: recognizedChoice)
                 completeChoice()
             } else {
                 fallthrough
@@ -137,7 +135,6 @@ class CardView: UIView {
     }
     
     private func displayChoice(_ choice: Choice) {
-        delegate?.cardView(self, didDisplayChoice: choice)
         if (choice == .none) {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 0
@@ -148,10 +145,10 @@ class CardView: UIView {
             }, completion: nil)
         }
         displayingChoice = choice
+        delegate?.cardView(self, didDisplayChoice: choice)
     }
     
     private func completeChoice() {
-        print("completed")
         let direction = CGFloat(recognizedChoice == .left ? -1.0 : 1.0)
         let finalXPosition = direction * (frame.width * 0.66)
         let finalDegrees = 10 * direction

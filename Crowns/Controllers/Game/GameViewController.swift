@@ -39,9 +39,7 @@ extension GameViewController : CardViewDelegate {
 
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
         viewModel.didSwipeCard(withChoice: choice)
-        
-        let factionsModes = viewModel.factionsScoreViewModes(for: choice)
-        factionsScoreView.update(withModes: factionsModes)
+        factionsScoreView.update(withModes: .none)
     }
 }
 

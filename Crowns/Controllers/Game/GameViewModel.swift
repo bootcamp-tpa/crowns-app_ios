@@ -49,6 +49,7 @@ class GameViewModel {
     private func attemptToCreateNewGame() {
         delegate.showLoadingIndicator(true)
         webService.createGame(completion: { [weak self] result in
+            self?.delegate.showLoadingIndicator(false)
             switch result {
             case .success(let deck): self?.attemptToCreateGame(withDeck: deck)
             case .failure(let error): self?.delegate.showErrorAlert(withMessage: error.title)
