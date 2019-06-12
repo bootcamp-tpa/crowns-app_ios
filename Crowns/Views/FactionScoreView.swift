@@ -72,3 +72,18 @@ class FactionScoreView: UIView {
         addSubview(contentView)
     }
 }
+
+private extension Faction {
+    func asset() -> String {
+        switch self {
+        case .church:
+            return "church-mask"
+        case .commoners:
+            return "commoners-mask"
+        case .merchants:
+            return "merchants-mask"
+        case .military:
+            return "military-mask"
+        }
+    }
+}

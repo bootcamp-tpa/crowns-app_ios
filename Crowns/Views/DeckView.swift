@@ -7,14 +7,6 @@
 import UIKit
 
 class DeckView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     var cardDelegate : CardViewDelegate?
     var currentCard : CardView?
@@ -53,8 +45,8 @@ extension DeckView : CardViewDelegate {
     }
     
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
-        cardDelegate?.cardView(cardView, didFinalizeChoice: choice)
         initCard()
+        cardDelegate?.cardView(cardView, didFinalizeChoice: choice)
     }
 }
 

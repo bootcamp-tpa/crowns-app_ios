@@ -20,7 +20,8 @@ protocol CardViewDelegate {
 }
 
 struct CardViewModel {
-    
+    let title: String
+    let image: String
 }
 
 class CardView: UIView {
@@ -46,6 +47,15 @@ class CardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
+    }
+    
+    func update(withModel model: CardViewModel) {
+        cardTitleLabel.text = model.title
+        cardImage.image = UIImage(named: model.image)
+    }
+    
+    func update(withChoiceName name: String) {
+        currentChoiceLabel.text = name
     }
     
     private func initSubviews() {
@@ -108,9 +118,8 @@ class CardView: UIView {
             let radians = CGFloat(degrees * .pi / 180)
             rotate = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         case .ended:
-            // TO-DO: send answer
+            delegate?.cardView(self, didFinalizeChoice: recognizedChoice)
             if recognizedChoice != .none {
-                delegate?.cardView(self, didFinalizeChoice: recognizedChoice)
                 completeChoice()
             } else {
                 fallthrough
@@ -132,11 +141,9 @@ class CardView: UIView {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 0
             }, completion: nil)
-        }
-        else if (choice != displayingChoice) {
+        } else if choice != displayingChoice {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 1
-                self.currentChoiceLabel.text = choice == .left ? "left" : "right";
             }, completion: nil)
             delegate?.cardView(self, didDisplayChoice: choice)
         }

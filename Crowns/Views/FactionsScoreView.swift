@@ -11,6 +11,15 @@ struct FactionsScoreViewModel {
     let commonersModifierMode: ModifierMode
     let militaryModifierMode: ModifierMode
     let merchantsModifierMode: ModifierMode
+    
+    static var empty: FactionsScoreViewModel {
+        return FactionsScoreViewModel(
+            churchModifierMode: .none,
+            commonersModifierMode: .none,
+            militaryModifierMode: .none,
+            merchantsModifierMode: .none
+        )
+    }
 }
 
 struct FactionScoreViewChange {
