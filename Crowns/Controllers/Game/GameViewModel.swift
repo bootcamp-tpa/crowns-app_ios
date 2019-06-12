@@ -1,9 +1,9 @@
-protocol GameViewInteractorDelegate: AnyObject {
+protocol GameViewModelDelegate: AnyObject {
     
 }
 
-class GameViewInteractor {
-    weak var delegate: GameViewInteractorDelegate!
+class GameViewModel {
+    weak var delegate: GameViewModelDelegate!
     let username: String
     
     init(user: User) {

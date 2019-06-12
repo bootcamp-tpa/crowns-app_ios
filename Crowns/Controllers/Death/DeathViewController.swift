@@ -4,7 +4,7 @@ class DeathViewController: UIViewController {
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
     
-    private var interactor: DeathViewInteractor!
+    private var interactor: DeathViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class DeathViewController: UIViewController {
     }
 }
 
-extension DeathViewController: DeathViewInteractorDelegate {
+extension DeathViewController: DeathViewModelDelegate {
     func dismiss() {
         dismiss(animated: true)
     }
@@ -24,8 +24,9 @@ extension DeathViewController: DeathViewInteractorDelegate {
 
 extension DeathViewController {
     static func instantiate(withUser user: User) -> UIViewController {
-        let controller: DeathViewController = .instantiate(storyboardId: "DeathViewController")
-        let interactor = DeathViewInteractor(user: user)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DeathViewController") as! DeathViewController
+        let interactor = DeathViewModel(user: user)
         controller.interactor = interactor
         interactor.delegate = controller
         return controller

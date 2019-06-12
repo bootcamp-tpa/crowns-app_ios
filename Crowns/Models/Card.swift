@@ -1,5 +1,5 @@
 struct Card: Codable {
-    enum `Type`: String, Codable {
+    enum CardType: String, Codable {
         case event = "EVENT"
         case death = "DEATH"
     }
@@ -17,7 +17,7 @@ struct Card: Codable {
     
     let id: Int
     let cardText: String
-    let cardType: Type
+    let cardType: CardType
     let cardImage: Image
     let leftChoice: CardChoice
     let rightChoice: CardChoice

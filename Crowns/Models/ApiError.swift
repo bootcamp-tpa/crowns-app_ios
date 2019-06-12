@@ -5,12 +5,7 @@ struct ApiError: Error {
 extension ApiError: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        let title = try container.decode(String.self)
-        if title == "user already exists" {
-            self.title = "Username has already been taken."
-        } else {
-            throw ApiError.unknown
-        }
+        self.title = try container.decode(String.self)
     }
 }
 

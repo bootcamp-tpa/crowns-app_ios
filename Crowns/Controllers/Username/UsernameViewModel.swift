@@ -1,26 +1,17 @@
-//
-//  UsernameViewInteractor.swift
-//  Crowns
-//
-//  Created by Damian Kolasiński on 11/06/2019.
-//  Copyright © 2019 halftonedesign. All rights reserved.
-//
-
-import Foundation
-
-protocol UsernameViewInteractorDelegate: AnyObject {
+protocol UsernameViewModelDelegate: AnyObject {
     func showLoadingIndicator(_ show: Bool)
+    func enableStartButton(_ enable: Bool)
     func showErrorAlert(withMessage message: String)
     func showGameController(forUser user: User)
 }
 
-class UsernameViewInteractor {
-    weak var delegate: UsernameViewInteractorDelegate!
-    private let storage: UserDefaultsStorage
+class UsernameViewModel {
+    weak var delegate: UsernameViewModelDelegate!
+    private let storage: JSONStorage
     private let webService: WebService
     private var username: String?
     
-    init(storage: UserDefaultsStorage,
+    init(storage: JSONStorage,
          webService: WebService) {
         self.storage = storage
         self.webService = webService
@@ -28,13 +19,15 @@ class UsernameViewInteractor {
     
     func textFieldValueDidChange(to value: String?) {
         username = value
+        if let value = value, !value.isEmpty {
+            delegate.enableStartButton(true)
+        } else {
+            delegate.enableStartButton(false)
+        }
     }
     
     func didTapStartButton() {
-        guard let username = username, !username.isEmpty else {
-            delegate.showErrorAlert(withMessage: "Please enter the username.")
-            return
-        }
+        guard let username = username, !username.isEmpty else { return }
         attemptToCreateUser(withUsername: username)
     }
     
@@ -49,8 +42,18 @@ class UsernameViewInteractor {
                     storage.store(user: user)
                     delegate?.showGameController(forUser: user)
                 case .failure(let error):
-                    delegate?.showErrorAlert(withMessage: error.title)
+                    delegate?.showErrorAlert(withMessage: error.displayableTitle)
                 }
         })
+    }
+}
+
+private extension ApiError {
+    var displayableTitle: String {
+        if title == "user already exists" {
+             return "Username has already been taken."
+        } else {
+            return ApiError.unknown.title
+        }
     }
 }

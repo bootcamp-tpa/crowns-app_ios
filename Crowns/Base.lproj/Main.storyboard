@@ -38,9 +38,9 @@
                                     <action selector="textFieldValueChanged:" destination="aP6-fT-wWN" eventType="editingChanged" id="Mx1-Wr-TZY"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cma-YD-xgm">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cma-YD-xgm">
                                 <rect key="frame" x="24" y="513" width="366" height="50"/>
-                                <color key="backgroundColor" red="0.85882352941176465" green="0.50196078431372548" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.83137254901960789" green="0.98039215686274506" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,6 +81,7 @@
                     </view>
                     <connections>
                         <outlet property="loadingIndicator" destination="uVl-yu-2NY" id="ETD-nU-2Te"/>
+                        <outlet property="startButton" destination="cma-YD-xgm" id="cyS-8C-vum"/>
                         <outlet property="usernameTextField" destination="6q1-Y7-6IB" id="FaU-S5-2fr"/>
                     </connections>
                 </viewController>

@@ -10,7 +10,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
-    private var interactor: GameViewInteractor!
+    private var interactor: GameViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +35,9 @@ extension GameViewController : CardViewDelegate {
 
 extension GameViewController {
     static func instantiate(withUser user: User) -> UIViewController {
-        let controller: GameViewController = .instantiate(storyboardId: "GameViewController")
-        controller.interactor = GameViewInteractor(user: user)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        controller.interactor = GameViewModel(user: user)
         return controller
     }
 }

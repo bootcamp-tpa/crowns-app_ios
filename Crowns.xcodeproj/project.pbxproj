@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494522AFB27100973E6F /* UsernameViewController.swift */; };
-		2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */; };
+		2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewModel.swift */; };
 		2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494C22AFB7CC00973E6F /* ApiError.swift */; };
 		2D0E495222AFD69000973E6F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Request.swift */; };
 		2D0E495422AFE87E00973E6F /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495322AFE87E00973E6F /* Choice.swift */; };
 		2D0E495622AFEF9700973E6F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495522AFEF9700973E6F /* Deck.swift */; };
-		2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */; };
-		2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495922AFF38C00973E6F /* Dependencies.swift */; };
+		2D0E495822AFF0D800973E6F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewModel.swift */; };
 		2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */; };
-		2D0E495F22AFFF5600973E6F /* DeathViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */; };
-		2D0E496222AFFFEE00973E6F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496122AFFFEE00973E6F /* UIViewController.swift */; };
+		2D0E495F22AFFF5600973E6F /* DeathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
-		2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */; };
+		2DFA382B22AFAB47000471E2 /* JSONStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382A22AFAB47000471E2 /* JSONStorage.swift */; };
 		4209D6089FF94535E50FD9BD /* Pods_Crowns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818F22EAD4D1D27B61690D6F /* Pods_Crowns.framework */; };
 		4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D24EFF222525E5A00B87D5B /* ScoreView.swift */; };
 		4D25565022510760004D5EFC /* GameStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D25564F22510760004D5EFC /* GameStatsView.swift */; };
@@ -66,20 +64,18 @@
 		0D5ACE9C4CCD37AD84FFC6D6 /* Pods_CrownsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrownsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FFB8296EBFB19B5A0D6FF25 /* Pods-Crowns.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowns.release.xcconfig"; path = "Target Support Files/Pods-Crowns/Pods-Crowns.release.xcconfig"; sourceTree = "<group>"; };
 		2D0E494522AFB27100973E6F /* UsernameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewController.swift; sourceTree = "<group>"; };
-		2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewInteractor.swift; sourceTree = "<group>"; };
+		2D0E494A22AFB67D00973E6F /* UsernameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewModel.swift; sourceTree = "<group>"; };
 		2D0E494C22AFB7CC00973E6F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2D0E495122AFD69000973E6F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2D0E495322AFE87E00973E6F /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
 		2D0E495522AFEF9700973E6F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
-		2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewInteractor.swift; sourceTree = "<group>"; };
-		2D0E495922AFF38C00973E6F /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		2D0E495722AFF0D800973E6F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
-		2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewInteractor.swift; sourceTree = "<group>"; };
-		2D0E496122AFFFEE00973E6F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewModel.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		2DFA382A22AFAB47000471E2 /* JSONStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStorage.swift; sourceTree = "<group>"; };
 		38268D0922AEF92BDA4E7DAD /* Pods-CrownsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrownsUITests.release.xcconfig"; path = "Target Support Files/Pods-CrownsUITests/Pods-CrownsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4D24EFF222525E5A00B87D5B /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		4D25564F22510760004D5EFC /* GameStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsView.swift; sourceTree = "<group>"; };
@@ -145,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE57A7F224BC12800D37B57 /* GameViewController.swift */,
-				2D0E495722AFF0D800973E6F /* GameViewInteractor.swift */,
+				2D0E495722AFF0D800973E6F /* GameViewModel.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -154,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2D0E494522AFB27100973E6F /* UsernameViewController.swift */,
-				2D0E494A22AFB67D00973E6F /* UsernameViewInteractor.swift */,
+				2D0E494A22AFB67D00973E6F /* UsernameViewModel.swift */,
 			);
 			path = Username;
 			sourceTree = "<group>";
@@ -172,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */,
-				2D0E495E22AFFF5600973E6F /* DeathViewInteractor.swift */,
+				2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */,
 			);
 			path = Death;
 			sourceTree = "<group>";
@@ -180,7 +176,6 @@
 		2D0E496022AFFFE400973E6F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				2D0E496122AFFFEE00973E6F /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -189,8 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				2D0E495022AFD66000973E6F /* WebService */,
-				2DFA382A22AFAB47000471E2 /* UserDefaultsStorage.swift */,
-				2D0E495922AFF38C00973E6F /* Dependencies.swift */,
+				2DFA382A22AFAB47000471E2 /* JSONStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -555,10 +549,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */,
 				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				4D25565D2251189A004D5EFC /* Model.swift in Sources */,
-				2D0E494B22AFB67D00973E6F /* UsernameViewInteractor.swift in Sources */,
+				2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */,
 				4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */,
 				4DE57A80224BC12800D37B57 /* GameViewController.swift in Sources */,
 				4D3EC8AC224C170B0000CF5C /* CardView.swift in Sources */,
@@ -567,18 +560,17 @@
 				4DE57A7E224BC12800D37B57 /* AppDelegate.swift in Sources */,
 				2D0E495222AFD69000973E6F /* Request.swift in Sources */,
 				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
-				2D0E495822AFF0D800973E6F /* GameViewInteractor.swift in Sources */,
+				2D0E495822AFF0D800973E6F /* GameViewModel.swift in Sources */,
 				2D0E495622AFEF9700973E6F /* Deck.swift in Sources */,
-				2D0E496222AFFFEE00973E6F /* UIViewController.swift in Sources */,
 				4D25565A22510EE1004D5EFC /* FactionScoreView.swift in Sources */,
 				2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */,
 				2D0E495422AFE87E00973E6F /* Choice.swift in Sources */,
-				2DFA382B22AFAB47000471E2 /* UserDefaultsStorage.swift in Sources */,
+				2DFA382B22AFAB47000471E2 /* JSONStorage.swift in Sources */,
 				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
 				2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */,
 				4D25565422510E91004D5EFC /* FactionsScoreView.swift in Sources */,
 				2DFA382722AFA8A4000471E2 /* User.swift in Sources */,
-				2D0E495F22AFFF5600973E6F /* DeathViewInteractor.swift in Sources */,
+				2D0E495F22AFFF5600973E6F /* DeathViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +747,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Crowns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,6 +766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Crowns/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

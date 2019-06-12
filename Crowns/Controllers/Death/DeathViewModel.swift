@@ -1,9 +1,9 @@
-protocol DeathViewInteractorDelegate: AnyObject {
+protocol DeathViewModelDelegate: AnyObject {
     func dismiss()
 }
 
-class DeathViewInteractor {
-    weak var delegate: DeathViewInteractorDelegate!
+class DeathViewModel {
+    weak var delegate: DeathViewModelDelegate!
     let username: String
     
     init(user: User) {
