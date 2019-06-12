@@ -14,7 +14,7 @@ enum Choice {
     case right
 }
 
-protocol CardViewDelegate {
+protocol CardViewDelegate: AnyObject {
     func cardView(_ cardView: CardView, didDisplayChoice choice: Choice)
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice)
 }
@@ -26,10 +26,10 @@ struct CardViewModel {
 
 class CardView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var currentChoiceLabel: UILabel!
-    @IBOutlet weak var cardTitleLabel: UILabel!
-    @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var currentChoiceLabel: UILabel!
+    @IBOutlet private weak var cardTitleLabel: UILabel!
+    @IBOutlet private weak var cardImage: UIImageView!
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
@@ -37,7 +37,7 @@ class CardView: UIView {
     var recognizedChoice : Choice = .none
     var displayingChoice : Choice = .none
 
-    var delegate: CardViewDelegate?
+    weak var delegate: CardViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,7 +50,7 @@ class CardView: UIView {
     }
     
     func update(withModel model: CardViewModel) {
-        cardTitleLabel.text = model.title
+        //        cardTitleLabel.text = model.title // TODO: add subview
         cardImage.image = UIImage(named: model.image)
     }
     
@@ -81,7 +81,7 @@ class CardView: UIView {
         addSubview(contentView)
     }
     
-    @IBAction func handlePan(_ gestureRecognizer : UIPanGestureRecognizer) {
+    @IBAction private func handlePan(_ gestureRecognizer : UIPanGestureRecognizer) {
         let maxMovementValue = frame.width / 4.0
         var move : CATransform3D?
         var rotate : CATransform3D?
@@ -136,7 +136,7 @@ class CardView: UIView {
         
     }
     
-    func displayChoice(_ choice: Choice) {
+    private func displayChoice(_ choice: Choice) {
         if (choice == .none) {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 0
@@ -150,7 +150,7 @@ class CardView: UIView {
         displayingChoice = choice
     }
     
-    func completeChoice() {
+    private func completeChoice() {
         print("completed")
         let direction = CGFloat(recognizedChoice == .left ? -1.0 : 1.0)
         let finalXPosition = direction * (frame.width * 0.66)

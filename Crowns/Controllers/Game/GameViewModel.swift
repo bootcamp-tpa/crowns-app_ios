@@ -1,6 +1,6 @@
 protocol GameViewModelDelegate: AnyObject {
-    func updateFactionsScore(withChange change: FactionScoreViewChange)
-    func updateCard(withModel model: CardViewModel)
+    func updateFactionsScore(withModel model: FactionsScoreViewModel)
+    func updateCard(withModel model: CardViewModel?)
     func updateGameStats(withModel model: GameStatsViewModel)
     func showLoadingIndicator(_ show: Bool)
     func showErrorAlert(withMessage message: String)
@@ -26,12 +26,24 @@ class GameViewModel {
         self.webService = webService
     }
     
-    func viewDidLoad() {
+    func viewWillAppear() {
+        startGame()
+    }
+    
+    private func startGame() {
+        updateDelegateWithInitialValues()
         if let game = storage.getGame() {
             self.game = game
+            updateDelegate()
         } else {
             attemptToCreateNewGame()
         }
+    }
+    
+    private func updateDelegateWithInitialValues() {
+        delegate.updateFactionsScore(withModel: .initial)
+        delegate.updateCard(withModel: nil)
+        delegate.updateGameStats(withModel: .initial)
     }
     
     private func attemptToCreateNewGame() {
@@ -47,17 +59,18 @@ class GameViewModel {
     private func attemptToCreateGame(withDeck deck: Deck) {
         if let firstCard = deck.cards.first {
             game = Game(currentCard: firstCard, cards: deck.cards)
+            updateDelegate()
         } else {
             delegate.showErrorAlert(withMessage: ApiError.unknown.title)
         }
     }
     
-    func factionsScoreViewModel(for choice: Choice) -> FactionsScoreViewModel {
-        guard let card = game.currentCard else { return .empty }
+    func factionsScoreViewModes(for choice: Choice) -> FactionsScoreViewModes {
+        guard let card = game.currentCard else { return .none }
         switch choice {
-        case .left: return mapChoiceToFactionsScoreViewModel(card.leftChoice)
-        case .right: return mapChoiceToFactionsScoreViewModel(card.rightChoice)
-        case .none: return .empty
+        case .left: return mapChoiceToFactionsScoreViewModes(card.leftChoice)
+        case .right: return mapChoiceToFactionsScoreViewModes(card.rightChoice)
+        case .none: return .none
         }
     }
     
@@ -81,8 +94,8 @@ class GameViewModel {
     
     private func update(withChoice choice: CardChoice) {
         updateGame(withChoice: choice)
-        finishGameIfNeeded()
-        updateDelegate(withChoice: choice)
+        finishGameIfNeeded() // TODO: do not update delegate nor store game if game has finished
+        updateDelegate()
         storeGame()
     }
     
@@ -94,7 +107,8 @@ class GameViewModel {
         game.score += choice.bonusModifier
         game.turnsPlayed += 1
         if game.turnsPlayed % 3 == 0 { game.kingAge += 1 }
-        game.currentCard = choice.nextCard ?? game.cards.dropFirst().first
+        game.currentCard = choice.nextCard ?? game.cards.first
+        game.cards = Array(game.cards.dropFirst())
     }
     
     private func finishGameIfNeeded() {
@@ -106,10 +120,10 @@ class GameViewModel {
         }
     }
     
-    private func updateDelegate(withChoice choice: CardChoice) {
+    private func updateDelegate() {
         guard let currentCard = game.currentCard else { return }
         delegate.updateCard(withModel: mapCardToCardViewModel(currentCard))
-        // TODO: factions
+        delegate.updateFactionsScore(withModel: mapGameToFactionsScoreViewModel(game))
         delegate.updateGameStats(withModel: mapGameToGameStatsViewModel(game))
     }
     
@@ -118,8 +132,8 @@ class GameViewModel {
     }
 }
 
-private func mapChoiceToFactionsScoreViewModel(_ choice: CardChoice) -> FactionsScoreViewModel {
-    return FactionsScoreViewModel(
+private func mapChoiceToFactionsScoreViewModes(_ choice: CardChoice) -> FactionsScoreViewModes {
+    return FactionsScoreViewModes(
         churchModifierMode: modifierMode(from: choice.churchModifier),
         commonersModifierMode: modifierMode(from: choice.commonersModifier),
         militaryModifierMode: modifierMode(from: choice.militaryModifier),
@@ -137,11 +151,6 @@ private func modifierMode(from modifier: Int) -> ModifierMode {
     }
 }
 
-private func mapChoiceToFactionScoreViewChange(_ choice: CardChoice) -> FactionScoreViewChange {
-    return FactionScoreViewChange(
-        faction: <#T##Faction#>, score: <#T##Int#>)
-}
-
 private func mapCardToCardViewModel(_ card: Card) -> CardViewModel {
     return CardViewModel(
         title: card.cardText,
@@ -154,4 +163,33 @@ private func mapGameToGameStatsViewModel(_ game: Game) -> GameStatsViewModel {
         score: String(game.score),
         years: String(game.kingAge)
     )
+}
+
+private func mapGameToFactionsScoreViewModel(_ game: Game) -> FactionsScoreViewModel {
+    return FactionsScoreViewModel(
+        churchScore: game.churchScore,
+        commonersScore: game.commonersScore,
+        militaryScore: game.militaryScore,
+        merchantsScore: game.merchantsScore
+    )
+}
+
+private extension FactionsScoreViewModel {
+    static var initial: FactionsScoreViewModel {
+        return FactionsScoreViewModel(
+            churchScore: Game.initialFactionScore,
+            commonersScore: Game.initialFactionScore,
+            militaryScore: Game.initialFactionScore,
+            merchantsScore: Game.initialFactionScore
+        )
+    }
+}
+
+private extension GameStatsViewModel {
+    static var initial: GameStatsViewModel {
+        return GameStatsViewModel(
+            score: String(Game.initialScore),
+            years: String(Game.initialKingAge)
+        )
+    }
 }

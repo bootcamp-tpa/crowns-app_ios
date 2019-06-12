@@ -16,7 +16,11 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         setUsername()
         deckView.cardDelegate = self
-        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
 
     private func setUsername() {
@@ -29,8 +33,8 @@ extension GameViewController : CardViewDelegate {
         let choiceName = viewModel.choiceName(for: choice)
         cardView.update(withChoiceName: choiceName)
 
-        let factionsScoreViewModel = viewModel.factionsScoreViewModel(for: choice)
-        factionsScoreView.update(withModel: factionsScoreViewModel)
+        let factionsModes = viewModel.factionsScoreViewModes(for: choice)
+        factionsScoreView.update(withModes: factionsModes)
     }
 
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
@@ -39,16 +43,28 @@ extension GameViewController : CardViewDelegate {
 }
 
 extension GameViewController: GameViewModelDelegate {
-    func updateFactionsScore(withChange change: FactionScoreViewChange) {
-        factionsScoreView.update(withChange: change)
+    func updateFactionsScore(withModel model: FactionsScoreViewModel) {
+        factionsScoreView.update(withModel: model)
     }
 
-    func updateCard(withModel model: CardViewModel) {
-        deckView.currentCard?.update(withModel: model)
+    func updateCard(withModel model: CardViewModel?) {
+        if let model = model {
+            deckView.currentCard?.update(withModel: model)
+        } else {
+            deckView.removeCard()
+        }
     }
 
     func updateGameStats(withModel model: GameStatsViewModel) {
         gameStatsView.update(withModel: model)
+    }
+    
+    func showLoadingIndicator(_ show: Bool) {
+        // TODO: showLoading
+    }
+    
+    func showErrorAlert(withMessage message: String) {
+        // TODO: allow user to retry
     }
     
     func showDeathController(forUser user: User, kingAge: Int) {
@@ -61,7 +77,11 @@ extension GameViewController {
     static func instantiate(withUser user: User) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        let viewModel = GameViewModel(user: user)
+        let viewModel = GameViewModel(
+            user: user,
+            storage: JSONStorageImp(),
+            webService: WebServiceImp()
+        )
         controller.viewModel = viewModel
         viewModel.delegate = controller
         return controller

@@ -8,34 +8,24 @@ import UIKit
 
 class DeckView: UIView {
     
-    var cardDelegate : CardViewDelegate?
-    var currentCard : CardView?
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        initSubviews()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initSubviews()
-    }
-
-    func initSubviews() {
-        // standard initialization logic
-        initCard()
-    }
-    
-    func initCard() {
-        let card = CardView.init(frame: self.bounds)
-        currentCard = card
-        currentCard?.delegate = self
-        addSubview(card)
-    }
+    weak var cardDelegate: CardViewDelegate?
+    var currentCard: CardView?
     
     override func layoutSubviews() {
         self.currentCard?.frame = self.bounds
         super.layoutSubviews()
+    }
+    
+    func removeCard() {
+        currentCard?.removeFromSuperview()
+        currentCard = nil
+    }
+    
+    private func initCard() {
+        let card = CardView(frame: self.bounds)
+        currentCard = card
+        currentCard?.delegate = self
+        addSubview(card)
     }
 }
 
