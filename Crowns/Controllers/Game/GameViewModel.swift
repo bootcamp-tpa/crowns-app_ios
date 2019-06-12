@@ -78,7 +78,7 @@ class GameViewModel {
         guard let card = game.currentCard else { return nil }
         switch choice {
         case .left: return card.leftChoice.choiceText
-        case .right: return card.leftChoice.choiceText
+        case .right: return card.rightChoice.choiceText
         case .none: return nil
         }
     }
@@ -109,7 +109,10 @@ class GameViewModel {
         game.merchantsScore += choice.merchantsModifier
         game.score += choice.bonusModifier
         game.turnsPlayed += 1
-        if game.turnsPlayed % 3 == 0 { game.kingAge += 1 }
+        if game.turnsPlayed % 3 == 0 {
+            game.kingAge += 1
+            game.score += 1
+        }
         game.currentCard = choice.nextCard ?? game.cards.first
         game.cards = Array(game.cards.dropFirst())
     }

@@ -137,6 +137,7 @@ class CardView: UIView {
     }
     
     private func displayChoice(_ choice: Choice) {
+        delegate?.cardView(self, didDisplayChoice: choice)
         if (choice == .none) {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 0
@@ -145,7 +146,6 @@ class CardView: UIView {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 1
             }, completion: nil)
-            delegate?.cardView(self, didDisplayChoice: choice)
         }
         displayingChoice = choice
     }
