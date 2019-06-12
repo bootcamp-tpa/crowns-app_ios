@@ -2,6 +2,8 @@ protocol GameViewModelDelegate: AnyObject {
     func updateFactionsScore(withChange change: FactionScoreViewChange)
     func updateCard(withModel model: CardViewModel)
     func updateGameStats(withModel model: GameStatsViewModel)
+    func showLoadingIndicator(_ show: Bool)
+    func showErrorAlert(withMessage message: String)
     func showDeathController(forUser user: User, kingAge: Int)
 }
 
@@ -11,15 +13,43 @@ class GameViewModel {
     private var game: Game!
     private let user: User
     private let storage: JSONStorage
+    private let webService: WebService
     private let maxKingAge = 114
 
-    init(user: User, storage: JSONStorage) {
+    init(
+        user: User,
+        storage: JSONStorage,
+        webService: WebService
+    ) {
         self.user = user
         self.storage = storage
+        self.webService = webService
     }
     
     func viewDidLoad() {
-        
+        if let game = storage.getGame() {
+            self.game = game
+        } else {
+            attemptToCreateNewGame()
+        }
+    }
+    
+    private func attemptToCreateNewGame() {
+        delegate.showLoadingIndicator(true)
+        webService.createGame(completion: { [weak self] result in
+            switch result {
+            case .success(let deck): self?.attemptToCreateGame(withDeck: deck)
+            case .failure(let error): self?.delegate.showErrorAlert(withMessage: error.title)
+            }
+        })
+    }
+    
+    private func attemptToCreateGame(withDeck deck: Deck) {
+        if let firstCard = deck.cards.first {
+            game = Game(currentCard: firstCard, cards: deck.cards)
+        } else {
+            delegate.showErrorAlert(withMessage: ApiError.unknown.title)
+        }
     }
     
     func factionsScoreViewModel(for choice: Choice) -> FactionsScoreViewModel {

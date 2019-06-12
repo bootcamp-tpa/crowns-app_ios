@@ -8,4 +8,9 @@ struct Game: Codable {
     var commonersScore = 50
     var militaryScore = 50
     var merchantsScore = 50
+    
+    init(currentCard: Card, cards: [Card]) {
+        self.currentCard = currentCard
+        self.cards = cards
+    }
 }

@@ -5,7 +5,7 @@ protocol WebService {
         withUsername username: String,
         completion: @escaping (Result<User, ApiError>) -> Void
     )
-    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void)
+    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
@@ -22,9 +22,9 @@ final class WebServiceImp: WebService {
         )
     }
     
-    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void) {
+    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
         request(
-            request: Request.getDeck(),
+            request: Request.createGame(),
             completion: completion
         )
     }
