@@ -48,11 +48,7 @@ extension GameViewController: GameViewModelDelegate {
     }
 
     func updateCard(withModel model: CardViewModel?) {
-        if let model = model {
-            deckView.currentCard?.update(withModel: model)
-        } else {
-            deckView.removeCard()
-        }
+        deckView.update(withModel: model)
     }
 
     func updateGameStats(withModel model: GameStatsViewModel) {

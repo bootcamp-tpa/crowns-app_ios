@@ -26,14 +26,19 @@ class DeckView: UIView {
         super.layoutSubviews()
     }
     
-    func removeCard() {
-        currentCard?.removeFromSuperview()
-        currentCard = nil
+    func update(withModel model: CardViewModel?) {
+        if let model = model {
+            if currentCard == nil { initCard() }
+            currentCard?.update(withModel: model)
+        } else {
+            currentCard?.removeFromSuperview()
+            currentCard = nil
+        }
     }
 
     private func initSubviews() {
         // standard initialization logic
-        initCard()
+//        initCard()
     }
     
     private func initCard() {
