@@ -94,9 +94,12 @@ class GameViewModel {
     
     private func update(withChoice choice: CardChoice) {
         updateGame(withChoice: choice)
-        finishGameIfNeeded() // TODO: do not update delegate nor store game if game has finished
-        updateDelegate()
-        storeGame()
+        if shouldFinishGame() {
+            finishGame()
+        } else {
+            updateDelegate()
+            storeGame()
+        }
     }
     
     private func updateGame(withChoice choice: CardChoice) {
@@ -111,13 +114,15 @@ class GameViewModel {
         game.cards = Array(game.cards.dropFirst())
     }
     
-    private func finishGameIfNeeded() {
-        if game.currentCard == nil
-           || game.currentCard!.cardType == .death
-           || game.kingAge > maxKingAge {
-            storage.store(game: nil)
-            delegate.showDeathController(forUser: user, kingAge: game.kingAge)
-        }
+    private func shouldFinishGame() -> Bool {
+        return game.currentCard == nil
+            || game.currentCard!.cardType == .death
+            || game.kingAge > maxKingAge
+    }
+    
+    private func finishGame() {
+        storage.store(game: nil)
+        delegate.showDeathController(forUser: user, kingAge: game.kingAge)
     }
     
     private func updateDelegate() {
