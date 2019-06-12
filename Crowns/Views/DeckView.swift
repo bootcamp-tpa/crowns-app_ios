@@ -11,14 +11,29 @@ class DeckView: UIView {
     weak var cardDelegate: CardViewDelegate?
     var currentCard: CardView?
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSubviews()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSubviews()
+    }
+    
     override func layoutSubviews() {
         self.currentCard?.frame = self.bounds
         super.layoutSubviews()
     }
     
-    func removeCard() {
+    func resetCard() {
         currentCard?.removeFromSuperview()
         currentCard = nil
+    }
+
+    private func initSubviews() {
+        // standard initialization logic
+        initCard()
     }
     
     private func initCard() {
