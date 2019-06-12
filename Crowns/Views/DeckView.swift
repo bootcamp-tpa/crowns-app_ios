@@ -26,7 +26,7 @@ class DeckView: UIView {
         super.layoutSubviews()
     }
     
-    func resetCard() {
+    func removeCard() {
         currentCard?.removeFromSuperview()
         currentCard = nil
     }

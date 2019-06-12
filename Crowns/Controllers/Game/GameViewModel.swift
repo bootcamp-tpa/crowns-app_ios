@@ -161,7 +161,7 @@ private func mapCardToCardViewModel(_ card: Card) -> CardViewModel {
 private func mapGameToGameStatsViewModel(_ game: Game) -> GameStatsViewModel {
     return GameStatsViewModel(
         score: String(game.score),
-        years: String(game.kingAge)
+        years: String(game.kingAge - Game.initialKingAge)
     )
 }
 
@@ -189,7 +189,7 @@ private extension GameStatsViewModel {
     static var initial: GameStatsViewModel {
         return GameStatsViewModel(
             score: String(Game.initialScore),
-            years: String(Game.initialKingAge)
+            years: String(0)
         )
     }
 }

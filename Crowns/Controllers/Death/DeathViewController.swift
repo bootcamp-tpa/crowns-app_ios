@@ -8,7 +8,12 @@ class DeathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabelsText()
+    }
+    
+    private func setLabelsText() {
         usernameLabel.text = viewModel.username
+        scoreLabel.text = viewModel.score
     }
     
     @IBAction private func didTapBackButton(_ sender: Any) {
