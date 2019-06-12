@@ -10,7 +10,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
-    private var interactor: GameViewModel!
+    private var viewModel: GameViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +19,16 @@ class GameViewController: UIViewController {
     }
 
     private func setup() {
-        gameStatsView.setUsername(username: interactor.username)
+        gameStatsView.setUsername(username: viewModel.username)
     }
 }
 
 extension GameViewController : CardViewDelegate {
     func cardView(_ cardView: CardView, didDisplayChoice choice: Choice) {
-        let choiceName = interactor.choiceName(for: choice)
+        let choiceName = viewModel.choiceName(for: choice)
         cardView.update(withChoiceName: choiceName)
 
-        let factionsScoreViewModel = interactor.factionsScoreViewModel(for: choice)
+        let factionsScoreViewModel = viewModel.factionsScoreViewModel(for: choice)
         factionsScoreView.update(withModel: factionsScoreViewModel)
     }
 
@@ -36,14 +36,14 @@ extension GameViewController : CardViewDelegate {
         factionsScoreView.update(withModel: .empty)
         switch choice {
         case .none: break
-        case .left: interactor.didSwipeCardToLeft()
-        case .right: interactor.didSwipeCardToRight()
+        case .left: viewModel.didSwipeCardToLeft()
+        case .right: viewModel.didSwipeCardToRight()
         }
 
     }
 }
 
-extension GameViewController: GameViewInteractorDelegate {
+extension GameViewController: GameViewModelDelegate {
     func updateFactionsScore(withChange change: FactionScoreViewChange) {
         factionsScoreView.update(withChange: change)
     }
@@ -61,8 +61,9 @@ extension GameViewController {
     static func instantiate(withUser user: User) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        controller.interactor = interactor
-        interactor.delegate = controller
+        let viewModel = GameViewModel(user: user)
+        controller.viewModel = viewModel
+        viewModel.delegate = controller
         return controller
     }
 }

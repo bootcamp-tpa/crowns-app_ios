@@ -45,7 +45,7 @@ extension DeckView : CardViewDelegate {
     }
     
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
-        initCard()
+        if choice != .none { initCard() }
         cardDelegate?.cardView(cardView, didFinalizeChoice: choice)
     }
 }
