@@ -23,10 +23,10 @@ extension DeathViewController: DeathViewModelDelegate {
 }
 
 extension DeathViewController {
-    static func instantiate(withUser user: User) -> UIViewController {
+    static func instantiate(withUser user: User, kingAge: Int) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "DeathViewController") as! DeathViewController
-        let viewModel = DeathViewModel(user: user)
+        let viewModel = DeathViewModel(user: user, kingAge: kingAge)
         controller.viewModel = viewModel
         viewModel.delegate = controller
         return controller

@@ -6,7 +6,7 @@ class DeathViewModel {
     weak var delegate: DeathViewModelDelegate!
     let username: String
     
-    init(user: User) {
+    init(user: User, kingAge: Int) {
         self.username = user.name
     }
     

@@ -33,13 +33,7 @@ extension GameViewController : CardViewDelegate {
     }
 
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
-        factionsScoreView.update(withModel: .empty)
-        switch choice {
-        case .none: break
-        case .left: viewModel.didSwipeCardToLeft()
-        case .right: viewModel.didSwipeCardToRight()
-        }
-
+        viewModel.didSwipeCard(withChoice: choice)
     }
 }
 

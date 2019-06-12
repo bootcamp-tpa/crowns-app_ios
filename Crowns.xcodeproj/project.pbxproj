@@ -16,8 +16,6 @@
 		2D0E495822AFF0D800973E6F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewModel.swift */; };
 		2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */; };
 		2D0E495F22AFFF5600973E6F /* DeathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */; };
-		2D0E496222AFFFEE00973E6F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496122AFFFEE00973E6F /* UIViewController.swift */; };
-		2D0E496422B0E76D00973E6F /* GameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496322B0E76C00973E6F /* GameEngine.swift */; };
 		2D0E496622B0E78800973E6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496522B0E78800973E6F /* Game.swift */; };
 		2D0E496822B0E93C00973E6F /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496722B0E93C00973E6F /* Faction.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
@@ -75,8 +73,6 @@
 		2D0E495722AFF0D800973E6F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewModel.swift; sourceTree = "<group>"; };
-		2D0E496122AFFFEE00973E6F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		2D0E496322B0E76C00973E6F /* GameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEngine.swift; sourceTree = "<group>"; };
 		2D0E496522B0E78800973E6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		2D0E496722B0E93C00973E6F /* Faction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
@@ -148,7 +144,6 @@
 			children = (
 				4DE57A7F224BC12800D37B57 /* GameViewController.swift */,
 				2D0E495722AFF0D800973E6F /* GameViewModel.swift */,
-				2D0E496322B0E76C00973E6F /* GameEngine.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -557,8 +552,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D0E496422B0E76D00973E6F /* GameEngine.swift in Sources */,
-				2D0E495A22AFF38C00973E6F /* Dependencies.swift in Sources */,
 				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				2D0E496622B0E78800973E6F /* Game.swift in Sources */,
 				2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */,
