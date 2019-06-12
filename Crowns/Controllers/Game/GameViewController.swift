@@ -14,11 +14,12 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setUsername()
         deckView.cardDelegate = self
+        viewModel.viewDidLoad()
     }
 
-    private func setup() {
+    private func setUsername() {
         gameStatsView.setUsername(username: viewModel.username)
     }
 }
@@ -48,6 +49,11 @@ extension GameViewController: GameViewModelDelegate {
 
     func updateGameStats(withModel model: GameStatsViewModel) {
         gameStatsView.update(withModel: model)
+    }
+    
+    func showDeathController(forUser user: User, kingAge: Int) {
+        let controller = DeathViewController.instantiate(withUser: user, kingAge: kingAge)
+        present(controller, animated: true)
     }
 }
 

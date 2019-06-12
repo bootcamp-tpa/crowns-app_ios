@@ -54,7 +54,7 @@ class CardView: UIView {
         cardImage.image = UIImage(named: model.image)
     }
     
-    func update(withChoiceName name: String) {
+    func update(withChoiceName name: String?) {
         currentChoiceLabel.text = name
     }
     

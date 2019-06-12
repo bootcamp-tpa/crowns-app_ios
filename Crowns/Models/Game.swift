@@ -1,4 +1,4 @@
-struct Game {
+struct Game: Codable {
     var currentCard: Card?
     var cards: [Card]
     var turnsPlayed = 0
@@ -8,9 +8,4 @@ struct Game {
     var commonersScore = 50
     var militaryScore = 50
     var merchantsScore = 50
-    
-    mutating func draw() -> Card? {
-        guard !cards.isEmpty else { return nil }
-        return cards.removeFirst()
-    }
 }

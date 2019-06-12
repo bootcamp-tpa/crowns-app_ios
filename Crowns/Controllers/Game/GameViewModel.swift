@@ -10,22 +10,24 @@ class GameViewModel {
     var username: String { return user.name }
     private var game: Game!
     private let user: User
+    private let storage: JSONStorage
     private let maxKingAge = 114
 
-    init(user: User) {
+    init(user: User, storage: JSONStorage) {
         self.user = user
+        self.storage = storage
+    }
+    
+    func viewDidLoad() {
+        
     }
     
     func factionsScoreViewModel(for choice: Choice) -> FactionsScoreViewModel {
-        let model = FactionsScoreViewModel(
-            churchModifierMode: .increase,
-            commonersModifierMode: .none,
-            militaryModifierMode: .decrease,
-            merchantsModifierMode: .decrease
-        )
+        guard let card = game.currentCard else { return .empty }
         switch choice {
+        case .left: return mapChoiceToFactionsScoreViewModel(card.leftChoice)
+        case .right: return mapChoiceToFactionsScoreViewModel(card.rightChoice)
         case .none: return .empty
-        default: return model
         }
     }
     
@@ -51,6 +53,7 @@ class GameViewModel {
         updateGame(withChoice: choice)
         finishGameIfNeeded()
         updateDelegate(withChoice: choice)
+        storeGame()
     }
     
     private func updateGame(withChoice choice: CardChoice) {
@@ -68,7 +71,7 @@ class GameViewModel {
         if game.currentCard == nil
            || game.currentCard!.cardType == .death
            || game.kingAge > maxKingAge {
-            // TODO: delete game from storage
+            storage.store(game: nil)
             delegate.showDeathController(forUser: user, kingAge: game.kingAge)
         }
     }
@@ -80,8 +83,8 @@ class GameViewModel {
         delegate.updateGameStats(withModel: mapGameToGameStatsViewModel(game))
     }
     
-    private func updateStoredGame() {
-        // TODO: store game
+    private func storeGame() {
+        storage.store(game: game)
     }
 }
 
