@@ -61,8 +61,8 @@ extension GameViewController: GameViewModelDelegate {
         }
     }
     
-    func showDeathController(forUser user: User, kingAge: Int) {
-        let controller = DeathViewController.instantiate(withUser: user, kingAge: kingAge)
+    func showDeathController(forUser user: User, finishedGame: Game) {
+        let controller = DeathViewController.instantiate(withUser: user, finishedGame: finishedGame)
         present(controller, animated: true)
     }
 }

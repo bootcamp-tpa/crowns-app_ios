@@ -39,10 +39,10 @@ private extension UIViewController {
 }
 
 extension DeathViewController {
-    static func instantiate(withUser user: User, kingAge: Int) -> UIViewController {
+    static func instantiate(withUser user: User, finishedGame: Game) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "DeathViewController") as! DeathViewController
-        let viewModel = DeathViewModel(user: user, kingAge: kingAge)
+        let viewModel = DeathViewModel(user: user, finishedGame: finishedGame)
         controller.viewModel = viewModel
         viewModel.delegate = controller
         return controller

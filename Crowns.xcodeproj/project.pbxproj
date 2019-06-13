@@ -23,6 +23,7 @@
 		2DC8D80622B278EE0014F885 /* RequestAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */; };
 		2DC8D80922B27F300014F885 /* CrownMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80822B27F300014F885 /* CrownMeViewController.swift */; };
 		2DC8D80B22B27F520014F885 /* CrownMeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80A22B27F520014F885 /* CrownMeViewModel.swift */; };
+		2DC8D80D22B292260014F885 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80C22B292260014F885 /* GameController.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -85,6 +86,7 @@
 		2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthorizer.swift; sourceTree = "<group>"; };
 		2DC8D80822B27F300014F885 /* CrownMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrownMeViewController.swift; sourceTree = "<group>"; };
 		2DC8D80A22B27F520014F885 /* CrownMeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrownMeViewModel.swift; sourceTree = "<group>"; };
+		2DC8D80C22B292260014F885 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				4DE57A7F224BC12800D37B57 /* GameViewController.swift */,
 				2D0E495722AFF0D800973E6F /* GameViewModel.swift */,
+				2DC8D80C22B292260014F885 /* GameController.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				2DFA382922AFA8E0000471E2 /* Card.swift in Sources */,
 				2DC8D80922B27F300014F885 /* CrownMeViewController.swift in Sources */,
 				2D0E495822AFF0D800973E6F /* GameViewModel.swift in Sources */,
+				2DC8D80D22B292260014F885 /* GameController.swift in Sources */,
 				2D0E495622AFEF9700973E6F /* Deck.swift in Sources */,
 				4D25565A22510EE1004D5EFC /* FactionScoreView.swift in Sources */,
 				2DC8D80222B261F00014F885 /* UIViewController.swift in Sources */,
