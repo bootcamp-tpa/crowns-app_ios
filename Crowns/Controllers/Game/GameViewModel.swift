@@ -26,7 +26,7 @@ class GameViewModel {
         self.webService = webService
     }
     
-    func viewWillAppear() {
+    func viewDidLoad() {
         startGame()
     }
     

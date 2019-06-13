@@ -1,5 +1,5 @@
 protocol DeathViewModelDelegate: AnyObject {
-    func dismiss()
+    func dismissToCrownMeController()
 }
 
 class DeathViewModel {
@@ -14,6 +14,6 @@ class DeathViewModel {
     }
     
     func didTapBackButton() {
-        delegate.dismiss()
+        delegate.dismissToCrownMeController()
     }
 }

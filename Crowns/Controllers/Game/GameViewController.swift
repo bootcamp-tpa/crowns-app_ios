@@ -17,11 +17,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         setUsername()
         deckView.cardDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.viewWillAppear()
+        viewModel.viewDidLoad()
     }
 
     private func setUsername() {
