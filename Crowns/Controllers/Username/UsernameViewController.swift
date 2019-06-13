@@ -18,7 +18,7 @@ class UsernameViewController: UIViewController {
         super.viewDidAppear(animated)
         // TODO - move to splash screen once created
         if let user = JSONStorageImp().getUser() {
-            showGameController(forUser: user)
+            showCrownMeController(forUser: user)
         }
     }
 
@@ -54,15 +54,10 @@ extension UsernameViewController: UsernameViewModelDelegate {
         }
     }
     
-    func showErrorAlert(withMessage message: String) {
-        let controller = UIAlertController(title: "Ooops.", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        controller.addAction(action)
-        present(controller, animated: true)
-    }
-    
-    func showGameController(forUser user: User) {
-        let controller = GameViewController.instantiate(withUser: user)
-        present(controller, animated: true)
+    func showCrownMeController(forUser user: User) {
+        let controller = CrownMeViewController.instantiate(withUser: user)
+        let navigationController = UINavigationController(rootViewController: controller)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        present(navigationController, animated: true)
     }
 }

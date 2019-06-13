@@ -1,4 +1,5 @@
 import Foundation
+import SwiftJWT
 
 protocol WebService {
     func createUser(
@@ -11,33 +12,50 @@ protocol WebService {
 final class WebServiceImp: WebService {
     private lazy var session = URLSession(configuration: .default)
     private static let decoder = JSONDecoder()
+    private let requestAuthorizer: RequestAuthorizer
+    
+    init(storage: JSONStorage = JSONStorageImp()) {
+        self.requestAuthorizer = RequestAuthorizer(storage: storage)
+    }
     
     func createUser(
         withUsername username: String,
         completion: @escaping (Result<User, ApiError>) -> Void
     ) {
         request(
-            request: Request.createUser(username: username),
+            urlRequest: Request.createUser(username: username),
             completion: completion
         )
     }
-    
+
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        // TODO: call api once token handling is ready
-        let leftChoice = CardChoice(nextCard: nil, choiceText: "Left", churchModifier: 15, commonersModifier: 12, merchantsModifier: 10, militaryModifier: -10, bonusModifier: 2)
-        let rightChoice = CardChoice(nextCard: nil, choiceText: "Right", churchModifier: 12, commonersModifier: -10, merchantsModifier: 10, militaryModifier: 10, bonusModifier: 10)
-        let card = Card(id: 0, cardText: "CARD1", cardType: .event, cardImage: .church, leftChoice: leftChoice, rightChoice: rightChoice)
-        let deck = Deck(cards: Array(repeating: card, count: 1))
-        completion(.success(deck))
+        let mockedDeck = Deck(cards: Array(repeating: Card.mock(), count: 10))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            completion(.success(mockedDeck))
+        })
+    }
+    
+    private func authorizedRequest<T: Decodable>(
+        urlRequest: URLRequest,
+        completion: @escaping (Result<T, ApiError>) -> Void
+    ) {
+        let authorizationOutcome = requestAuthorizer.authorize(urlRequest)
+        switch authorizationOutcome {
+        case .success(let authorizedURLRequest):
+            request(urlRequest: authorizedURLRequest, completion: completion)
+        case .failure(let error):
+            completion(.failure(error))
+        }
+        
     }
     
     private func request<T: Decodable>(
-        request: URLRequest,
+        urlRequest: URLRequest,
         completion: @escaping (Result<T, ApiError>) -> Void
-        ) {
-        print(request.curlString)
+    ) {
+        print(urlRequest.curlString)
         session.dataTask(
-            with: request,
+            with: urlRequest,
             completionHandler: { (data, response, error) in
                 func sendAPIError() {
                     DispatchQueue.main.async {

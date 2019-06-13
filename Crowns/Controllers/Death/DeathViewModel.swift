@@ -1,5 +1,5 @@
 protocol DeathViewModelDelegate: AnyObject {
-    func dismiss()
+    func dismissToCrownMeController()
 }
 
 class DeathViewModel {
@@ -7,13 +7,13 @@ class DeathViewModel {
     let username: String
     let score: String
     
-    init(user: User, kingAge: Int) {
+    init(user: User, finishedGame: Game) {
         self.username = user.name
         let startingYear = 1600
-        self.score = "\(startingYear) - \(startingYear + kingAge)"
+        self.score = "\(startingYear) - \(startingYear + finishedGame.kingAge)"
     }
     
     func didTapBackButton() {
-        delegate.dismiss()
+        delegate.dismissToCrownMeController()
     }
 }

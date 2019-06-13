@@ -10,17 +10,18 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     private var viewModel: GameViewModel!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUsername()
         deckView.cardDelegate = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.viewWillAppear()
+        viewModel.viewDidLoad()
     }
 
     private func setUsername() {
@@ -57,16 +58,16 @@ extension GameViewController: GameViewModelDelegate {
     }
     
     func showLoadingIndicator(_ show: Bool) {
-        // TODO: showLoading
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
     }
     
-    func showErrorAlert(withMessage message: String) {
-        // TODO: allow user to retry
-    }
-    
-    func showDeathController(forUser user: User, kingAge: Int) {
-        let controller = DeathViewController.instantiate(withUser: user, kingAge: kingAge)
-        present(controller, animated: true)
+    func showDeathController(forUser user: User, finishedGame: Game) {
+        let controller = DeathViewController.instantiate(withUser: user, finishedGame: finishedGame)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

@@ -4,17 +4,18 @@ protocol GameViewModelDelegate: AnyObject {
     func updateGameStats(withModel model: GameStatsViewModel)
     func showLoadingIndicator(_ show: Bool)
     func showErrorAlert(withMessage message: String)
-    func showDeathController(forUser user: User, kingAge: Int)
+    func showDeathController(forUser user: User, finishedGame: Game)
 }
 
 class GameViewModel {
     weak var delegate: GameViewModelDelegate!
     var username: String { return user.name }
-    private var game: Game!
+    
     private let user: User
     private let storage: JSONStorage
     private let webService: WebService
-    private let maxKingAge = 114
+    
+    private var gameController: GameController!
 
     init(
         user: User,
@@ -26,14 +27,14 @@ class GameViewModel {
         self.webService = webService
     }
     
-    func viewWillAppear() {
+    func viewDidLoad() {
         startGame()
     }
     
     private func startGame() {
         updateDelegateWithInitialValues()
         if let game = storage.getGame() {
-            self.game = game
+            gameController = GameController(game: game)
             updateDelegate()
         } else {
             attemptToCreateNewGame()
@@ -59,7 +60,8 @@ class GameViewModel {
     
     private func attemptToCreateGame(withDeck deck: Deck) {
         if let firstCard = deck.cards.first {
-            game = Game(currentCard: firstCard, cards: deck.cards)
+            let game = Game(currentCard: firstCard, cards: deck.cards)
+            gameController = GameController(game: game)
             updateDelegate()
         } else {
             delegate.showErrorAlert(withMessage: ApiError.unknown.title)
@@ -67,7 +69,7 @@ class GameViewModel {
     }
     
     func factionsScoreViewModes(for choice: Choice) -> FactionsScoreViewModes {
-        guard let card = game.currentCard else { return .none }
+        guard let card = gameController.game.currentCard else { return .none }
         switch choice {
         case .left: return mapChoiceToFactionsScoreViewModes(card.leftChoice)
         case .right: return mapChoiceToFactionsScoreViewModes(card.rightChoice)
@@ -76,7 +78,7 @@ class GameViewModel {
     }
     
     func choiceName(for choice: Choice) -> String? {
-        guard let card = game.currentCard else { return nil }
+        guard let card = gameController.game.currentCard else { return nil }
         switch choice {
         case .left: return card.leftChoice.choiceText
         case .right: return card.rightChoice.choiceText
@@ -85,51 +87,33 @@ class GameViewModel {
     }
 
     func didSwipeCard(withChoice choice: Choice) {
-        guard let currentCard = game.currentCard else { return }
-        switch choice {
-        case .left: update(withChoice: currentCard.leftChoice)
-        case .right: update(withChoice: currentCard.rightChoice)
-        case .none: return
-        }
-    }
-    
-    private func update(withChoice choice: CardChoice) {
-        updateGame(withChoice: choice)
-        if shouldFinishGame() {
+        guard let cardChoice = cardChoice(forGestureChoice: choice) else { return }
+        let outcome = gameController.playTurn(forChoice: cardChoice)
+        switch outcome {
+        case .death:
             finishGame()
-        } else {
+        case .success:
             updateDelegate()
             storeGame()
         }
     }
     
-    private func updateGame(withChoice choice: CardChoice) {
-        game.churchScore += choice.churchModifier
-        game.commonersScore += choice.commonersModifier
-        game.militaryScore += choice.militaryModifier
-        game.merchantsScore += choice.merchantsModifier
-        game.score += choice.bonusModifier
-        game.turnsPlayed += 1
-        if game.turnsPlayed % 3 == 0 {
-            game.kingAge += 1
-            game.score += 1
+    private func cardChoice(forGestureChoice choice: Choice) -> CardChoice? {
+        guard let currentCard = gameController.game.currentCard else { return nil }
+        switch choice {
+        case .left: return currentCard.leftChoice
+        case .right: return currentCard.rightChoice
+        case .none: return nil
         }
-        game.currentCard = choice.nextCard ?? game.cards.first
-        game.cards = Array(game.cards.dropFirst())
-    }
-    
-    private func shouldFinishGame() -> Bool {
-        return game.currentCard == nil
-            || game.currentCard!.cardType == .death
-            || game.kingAge > maxKingAge
     }
     
     private func finishGame() {
         storage.store(game: nil)
-        delegate.showDeathController(forUser: user, kingAge: game.kingAge)
+        delegate.showDeathController(forUser: user, finishedGame: gameController.game)
     }
     
     private func updateDelegate() {
+        let game = gameController.game
         guard let currentCard = game.currentCard else { return }
         delegate.updateCard(withModel: mapCardToCardViewModel(currentCard))
         delegate.updateFactionsScore(withModel: mapGameToFactionsScoreViewModel(game))
@@ -137,7 +121,7 @@ class GameViewModel {
     }
     
     private func storeGame() {
-        storage.store(game: game)
+        storage.store(game: gameController.game)
     }
 }
 
@@ -170,7 +154,7 @@ private func mapCardToCardViewModel(_ card: Card) -> CardViewModel {
 private func mapGameToGameStatsViewModel(_ game: Game) -> GameStatsViewModel {
     return GameStatsViewModel(
         score: String(game.score),
-        years: String(game.kingAge - Game.initialKingAge)
+        years: String(game.kingAge - GameController.initialKingAge)
     )
 }
 
@@ -186,10 +170,10 @@ private func mapGameToFactionsScoreViewModel(_ game: Game) -> FactionsScoreViewM
 private extension FactionsScoreViewModel {
     static var initial: FactionsScoreViewModel {
         return FactionsScoreViewModel(
-            churchScore: Game.initialFactionScore,
-            commonersScore: Game.initialFactionScore,
-            militaryScore: Game.initialFactionScore,
-            merchantsScore: Game.initialFactionScore
+            churchScore: GameController.initialFactionScore,
+            commonersScore: GameController.initialFactionScore,
+            militaryScore: GameController.initialFactionScore,
+            merchantsScore: GameController.initialFactionScore
         )
     }
 }
@@ -197,7 +181,7 @@ private extension FactionsScoreViewModel {
 private extension GameStatsViewModel {
     static var initial: GameStatsViewModel {
         return GameStatsViewModel(
-            score: String(Game.initialScore),
+            score: String(GameController.initialScore),
             years: String(0)
         )
     }

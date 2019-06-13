@@ -2,7 +2,7 @@ protocol UsernameViewModelDelegate: AnyObject {
     func showLoadingIndicator(_ show: Bool)
     func enableStartButton(_ enable: Bool)
     func showErrorAlert(withMessage message: String)
-    func showGameController(forUser user: User)
+    func showCrownMeController(forUser user: User)
 }
 
 class UsernameViewModel {
@@ -40,7 +40,7 @@ class UsernameViewModel {
                 switch result {
                 case .success(let user):
                     storage.store(user: user)
-                    delegate?.showGameController(forUser: user)
+                    delegate?.showCrownMeController(forUser: user)
                 case .failure(let error):
                     delegate?.showErrorAlert(withMessage: error.displayableTitle)
                 }
