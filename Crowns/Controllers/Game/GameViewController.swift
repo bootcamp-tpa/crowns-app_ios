@@ -13,6 +13,10 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     private var viewModel: GameViewModel!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUsername()
@@ -63,7 +67,7 @@ extension GameViewController: GameViewModelDelegate {
     
     func showDeathController(forUser user: User, finishedGame: Game) {
         let controller = DeathViewController.instantiate(withUser: user, finishedGame: finishedGame)
-        present(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

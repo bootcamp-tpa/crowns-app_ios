@@ -1,5 +1,5 @@
 enum TurnOutcome {
-    case update
+    case success
     case death
 }
 
@@ -40,9 +40,9 @@ class GameController {
            || game.currentCard!.cardType == .death
            || game.kingAge > GameController.maxKingAge
            || game.factionScores.contains(where: { $0 >= 100 || $0 <= 0 }) {
-           return .death
+            return .death
         } else {
-            return .update
+            return .success
         }
     }
     

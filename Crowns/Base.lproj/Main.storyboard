@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKk-uQ-HHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="96" y="11"/>
+            <point key="canvasLocation" x="-675" y="-655"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="857" y="11"/>
+            <point key="canvasLocation" x="136" y="-655"/>
         </scene>
         <!--Death View Controller-->
         <scene sceneID="ydb-FE-asT">
@@ -334,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hC9-WE-pQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1645" y="11"/>
+            <point key="canvasLocation" x="926" y="-656"/>
         </scene>
     </scenes>
     <resources>

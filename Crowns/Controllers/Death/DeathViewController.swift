@@ -23,18 +23,7 @@ class DeathViewController: UIViewController {
 
 extension DeathViewController: DeathViewModelDelegate {
     func dismissToCrownMeController() {
-        let crownMeController = findCrownMeControllerInHierarchy()
-        crownMeController?.dismiss(animated: true)
-    }
-}
-
-private extension UIViewController {
-    func findCrownMeControllerInHierarchy() -> UIViewController? {
-        if let crownMeController = presentingViewController as? CrownMeViewController {
-            return crownMeController
-        } else {
-            return presentingViewController?.findCrownMeControllerInHierarchy()
-        }
+        navigationController?.popToRootViewController(animated: true)
     }
 }
 

@@ -5,6 +5,10 @@ class CrownMeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     private var viewModel: CrownMeViewModel!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUsername()
@@ -22,7 +26,7 @@ class CrownMeViewController: UIViewController {
 extension CrownMeViewController: CrownMeViewModelDelegate {
     func showGameController(forUser user: User) {
         let controller = GameViewController.instantiate(withUser: user)
-        present(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

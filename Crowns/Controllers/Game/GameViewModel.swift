@@ -92,7 +92,7 @@ class GameViewModel {
         switch outcome {
         case .death:
             finishGame()
-        case .update:
+        case .success:
             updateDelegate()
             storeGame()
         }
