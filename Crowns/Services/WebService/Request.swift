@@ -6,7 +6,7 @@ struct Request {
     }
     
     static func createGame() -> URLRequest {
-        return request(path: "/game/get", method: .get)
+        return request(path: "/game/new", method: .get)
     }
     
     private static func request(

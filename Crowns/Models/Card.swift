@@ -15,7 +15,7 @@ struct Card: Codable {
         case treasury2 = "TREASURY_2"
     }
     
-    let id: Int
+    let id: String
     let cardText: String
     let cardType: CardType
     let cardImage: Image

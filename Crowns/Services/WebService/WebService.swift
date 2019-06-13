@@ -12,10 +12,10 @@ protocol WebService {
 final class WebServiceImp: WebService {
     private lazy var session = URLSession(configuration: .default)
     private static let decoder = JSONDecoder()
-    private let storage: JSONStorage
+    private let requestAuthorizer: RequestAuthorizer
     
     init(storage: JSONStorage = JSONStorageImp()) {
-        self.storage = storage
+        self.requestAuthorizer = RequestAuthorizer(storage: storage)
     }
     
     func createUser(
@@ -23,29 +23,36 @@ final class WebServiceImp: WebService {
         completion: @escaping (Result<User, ApiError>) -> Void
     ) {
         request(
-            request: Request.createUser(username: username),
+            urlRequest: Request.createUser(username: username),
+            completion: completion
+        )
+    }
+
+    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
+        authorizedRequest(
+            urlRequest: Request.createGame(),
             completion: completion
         )
     }
     
-    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        // TODO: call api once token handling is ready
-        let leftChoice = CardChoice(nextCard: nil, choiceText: "Left Choice", churchModifier: 15, commonersModifier: 12, merchantsModifier: 10, militaryModifier: -10, bonusModifier: 2)
-        let rightChoice = CardChoice(nextCard: nil, choiceText: "Right Choice", churchModifier: 12, commonersModifier: -10, merchantsModifier: 10, militaryModifier: 10, bonusModifier: 10)
-        let card = Card(id: 0, cardText: "Some text\nThat is multiline", cardType: .event, cardImage: .church, leftChoice: leftChoice, rightChoice: rightChoice)
-        let deck = Deck(cards: Array(repeating: card, count: 1))
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            completion(.success(deck))
-        })
+    private func authorizedRequest<T: Decodable>(
+        urlRequest: URLRequest,
+        completion: @escaping (Result<T, ApiError>) -> Void
+    ) {
+        guard let authorizedURLRequest = requestAuthorizer.authorize(urlRequest) else {
+            completion(.failure(ApiError.unknown))
+            return
+        }
+        request(urlRequest: authorizedURLRequest, completion: completion)
     }
     
     private func request<T: Decodable>(
-        request: URLRequest,
+        urlRequest: URLRequest,
         completion: @escaping (Result<T, ApiError>) -> Void
-        ) {
-        print(request.curlString)
+    ) {
+        print(urlRequest.curlString)
         session.dataTask(
-            with: request,
+            with: urlRequest,
             completionHandler: { (data, response, error) in
                 func sendAPIError() {
                     DispatchQueue.main.async {
