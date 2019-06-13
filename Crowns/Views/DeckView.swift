@@ -8,29 +8,53 @@ import UIKit
 
 class DeckView: UIView {
     
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var currentCardTitleLabel: UILabel!
+    @IBOutlet private weak var cardContainerView: UIView!
     weak var cardDelegate: CardViewDelegate?
     var currentCard: CardView?
     
-    override func layoutSubviews() {
-        self.currentCard?.frame = self.bounds
-        super.layoutSubviews()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSubviews()
     }
     
     func update(withModel model: CardViewModel?) {
         if let model = model {
             if currentCard == nil { initCard() }
-            currentCard?.update(withModel: model)
+            currentCardTitleLabel.text = model.title
+            currentCard?.update(withImage: model.image)
         } else {
+            currentCardTitleLabel.text = nil
             currentCard?.removeFromSuperview()
             currentCard = nil
         }
     }
     
+    private func initSubviews() {
+        // standard initialization logic
+        let bundle = Bundle(for: type(of: self))
+        let nibName = type(of: self).description().components(separatedBy: ".").last!
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        nib.instantiate(withOwner: self, options: nil)
+        contentView.frame = bounds
+        addSubview(contentView)
+    }
+    
     private func initCard() {
-        let card = CardView(frame: self.bounds)
+        let card = CardView()
         currentCard = card
         currentCard?.delegate = self
+        
+        card.translatesAutoresizingMaskIntoConstraints = false
         addSubview(card)
+        NSLayoutConstraint.activate([
+            card.topAnchor.constraint(equalTo: cardContainerView.topAnchor),
+            card.leadingAnchor.constraint(equalTo: cardContainerView.leadingAnchor),
+            card.trailingAnchor.constraint(equalTo: cardContainerView.trailingAnchor),
+            card.bottomAnchor.constraint(equalTo: cardContainerView.bottomAnchor)
+        ])
     }
 }
 

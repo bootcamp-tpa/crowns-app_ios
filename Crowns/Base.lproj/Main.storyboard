@@ -19,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PICK YOUR USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb7-wH-BfI">
-                                <rect key="frame" x="90.5" y="381" width="233" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="72" y="379.5" width="270.5" height="28.5"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="25"/>
                                 <color key="textColor" red="0.24705882352941178" green="0.16078431372549021" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="50" id="6UO-Ti-GhU"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="textFieldDidEndOnExit:" destination="aP6-fT-wWN" eventType="editingDidEndOnExit" id="Rzr-F5-UWZ"/>
@@ -41,7 +41,7 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cma-YD-xgm">
                                 <rect key="frame" x="24" y="513" width="366" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <state key="normal" title="START">
                                     <color key="titleColor" red="0.83137254901960789" green="0.98039215686274506" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -50,21 +50,21 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crowns-logo" translatesAutoresizingMaskIntoConstraints="NO" id="H0P-NF-SbP">
-                                <rect key="frame" x="107" y="188" width="200" height="108"/>
+                                <rect key="frame" x="107" y="201.5" width="200" height="108"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="L3J-Oq-og0"/>
                                     <constraint firstAttribute="height" constant="108" id="bCk-Y5-KVF"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-yu-2NY">
-                                <rect key="frame" x="197" y="326" width="20" height="20"/>
+                                <rect key="frame" x="197" y="331.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.8901960784313725" green="0.792156862745098" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H0P-NF-SbP" firstAttribute="centerX" secondItem="GsX-WU-Ejb" secondAttribute="centerX" id="Duy-we-Ymk"/>
-                            <constraint firstItem="uVl-yu-2NY" firstAttribute="top" secondItem="H0P-NF-SbP" secondAttribute="bottom" constant="30" id="Eb0-db-cyy"/>
-                            <constraint firstItem="fb7-wH-BfI" firstAttribute="top" secondItem="H0P-NF-SbP" secondAttribute="bottom" constant="85" id="ImL-PY-jlc"/>
+                            <constraint firstItem="uVl-yu-2NY" firstAttribute="top" secondItem="H0P-NF-SbP" secondAttribute="bottom" constant="22" id="Eb0-db-cyy"/>
+                            <constraint firstItem="fb7-wH-BfI" firstAttribute="top" secondItem="H0P-NF-SbP" secondAttribute="bottom" constant="70" id="ImL-PY-jlc"/>
                             <constraint firstItem="fb7-wH-BfI" firstAttribute="centerX" secondItem="GsX-WU-Ejb" secondAttribute="centerX" id="Lih-cT-7Am"/>
                             <constraint firstItem="6q1-Y7-6IB" firstAttribute="top" secondItem="fb7-wH-BfI" secondAttribute="bottom" constant="20" id="NyH-eZ-TEh"/>
                             <constraint firstItem="6q1-Y7-6IB" firstAttribute="leading" secondItem="GsX-WU-Ejb" secondAttribute="leading" constant="24" id="Q9i-M3-C98"/>
@@ -98,10 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Df8-os-ngQ" customClass="DeckView" customModule="Crowns" customModuleProvider="target">
-                                <rect key="frame" x="36" y="282" width="342" height="342"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Df8-os-ngQ" secondAttribute="height" multiplier="1:1" id="tFw-Uj-IEa"/>
-                                </constraints>
+                                <rect key="frame" x="35" y="172" width="344" height="568"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z2S-bP-uYp" customClass="GameStatsView" customModule="Crowns" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="775" width="414" height="121"/>
@@ -120,15 +117,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.85999999999999999" green="0.75" blue="0.63" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Df8-os-ngQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2GT-ea-dpb"/>
                             <constraint firstItem="fH6-OZ-scf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="76M-Dv-1sw"/>
                             <constraint firstAttribute="bottom" secondItem="Z2S-bP-uYp" secondAttribute="bottom" id="IAf-mj-pDL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z2S-bP-uYp" secondAttribute="trailing" id="KJb-Pg-Nok"/>
                             <constraint firstAttribute="top" secondItem="fH6-OZ-scf" secondAttribute="top" id="P0M-fG-EgX"/>
                             <constraint firstItem="Z2S-bP-uYp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P7v-09-cXZ"/>
-                            <constraint firstItem="Df8-os-ngQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="gUP-5R-OrD"/>
+                            <constraint firstItem="Z2S-bP-uYp" firstAttribute="top" secondItem="Df8-os-ngQ" secondAttribute="bottom" constant="35" id="ZVG-qJ-6rE"/>
+                            <constraint firstItem="Df8-os-ngQ" firstAttribute="top" secondItem="fH6-OZ-scf" secondAttribute="bottom" priority="999" constant="20" id="acg-fJ-tYy"/>
+                            <constraint firstItem="Df8-os-ngQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="gUP-5R-OrD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fH6-OZ-scf" secondAttribute="trailing" id="r4X-si-HMa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Df8-os-ngQ" secondAttribute="trailing" constant="36" id="rS6-Uy-IjO"/>
-                            <constraint firstItem="Df8-os-ngQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="thb-VP-l0j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -156,7 +154,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PeG-Lm-Luf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                 <state key="normal" title="BACK TO RULE">
                                     <color key="titleColor" red="0.83137254900000002" green="0.98039215690000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -173,40 +171,40 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EEV-BA-s21">
-                                <rect key="frame" x="24" y="527" width="366" height="43"/>
+                                <rect key="frame" x="24" y="527" width="366" height="41"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldD-NT-NXF">
-                                        <rect key="frame" x="140.5" y="0.0" width="85" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <rect key="frame" x="140" y="0.0" width="86.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                         <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600 - 606" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5j-H7-1BE">
-                                        <rect key="frame" x="140.5" y="21.5" width="85" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <rect key="frame" x="134.5" y="20.5" width="97.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                         <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="dMH-Zj-srj">
-                                <rect key="frame" x="173" y="206.5" width="68" height="100.5"/>
+                                <rect key="frame" x="161.5" y="198.5" width="91.5" height="108.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5Y-hi-TnC">
-                                        <rect key="frame" x="18" y="0.0" width="32" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <rect key="frame" x="29.5" y="0.0" width="32.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                         <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKR-Pl-sHh">
-                                        <rect key="frame" x="0.0" y="33.5" width="68" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="91.5" height="43.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="38"/>
                                         <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is dead" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH4-31-fVm">
-                                        <rect key="frame" x="4" y="79" width="60" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <rect key="frame" x="7.5" y="88" width="76" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
                                         <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

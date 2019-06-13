@@ -49,9 +49,8 @@ class CardView: UIView {
         initSubviews()
     }
     
-    func update(withModel model: CardViewModel) {
-        //        cardTitleLabel.text = model.title // TODO: add subview
-        cardImage.image = UIImage(named: model.image)
+    func update(withImage image: String) {
+        cardImage.image = UIImage(named: image)
     }
     
     func update(withChoiceName name: String?) {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeckView" customModule="Crowns" customModuleProvider="target">
+            <connections>
+                <outlet property="cardContainerView" destination="1fY-Nk-8eX" id="75V-gk-E27"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="SSL-ji-S5A"/>
+                <outlet property="currentCardTitleLabel" destination="AZr-NJ-gnm" id="tDy-em-YH9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="313" height="415"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZr-NJ-gnm">
+                    <rect key="frame" x="0.0" y="0.0" width="313" height="87"/>
+                    <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                    <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fY-Nk-8eX">
+                    <rect key="frame" x="0.0" y="102" width="313" height="313"/>
+                    <color key="backgroundColor" red="0.8901960784313725" green="0.792156862745098" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="1fY-Nk-8eX" secondAttribute="height" id="8eK-8y-IBI"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.8901960784313725" green="0.792156862745098" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AZr-NJ-gnm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0ou-j2-qvF"/>
+                <constraint firstItem="1fY-Nk-8eX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6uu-nP-OSS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1fY-Nk-8eX" secondAttribute="trailing" id="AaM-Hr-7SV"/>
+                <constraint firstItem="1fY-Nk-8eX" firstAttribute="top" secondItem="AZr-NJ-gnm" secondAttribute="bottom" constant="15" id="UHW-fN-OTm"/>
+                <constraint firstAttribute="bottom" secondItem="1fY-Nk-8eX" secondAttribute="bottom" id="VyY-cN-niT"/>
+                <constraint firstItem="AZr-NJ-gnm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wrB-Ob-GTg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AZr-NJ-gnm" secondAttribute="trailing" id="xFn-eB-z71"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>
