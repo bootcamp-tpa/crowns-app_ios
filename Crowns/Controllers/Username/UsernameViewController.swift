@@ -18,7 +18,7 @@ class UsernameViewController: UIViewController {
         super.viewDidAppear(animated)
         // TODO - move to splash screen once created
         if let user = JSONStorageImp().getUser() {
-            showGameController(forUser: user)
+            showCrownMeController(forUser: user)
         }
     }
 
@@ -54,8 +54,8 @@ extension UsernameViewController: UsernameViewModelDelegate {
         }
     }
     
-    func showGameController(forUser user: User) {
-        let controller = GameViewController.instantiate(withUser: user)
+    func showCrownMeController(forUser user: User) {
+        let controller = CrownMeViewController.instantiate(withUser: user)
         present(controller, animated: true)
     }
 }

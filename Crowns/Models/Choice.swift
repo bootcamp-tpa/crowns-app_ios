@@ -25,4 +25,24 @@ class CardChoice: Codable {
         self.militaryModifier = militaryModifier
         self.bonusModifier = bonusModifier
     }
+    
+    static func mock(
+        nextCard: Card? = nil,
+        choiceText: String = "Choice title",
+        churchModifier: Int = 15,
+        commonersModifier: Int = -20,
+        merchantsModifier: Int = 0,
+        militaryModifier: Int = 10,
+        bonusModifier: Int = 5
+    ) -> CardChoice {
+        return CardChoice(
+            nextCard: nextCard,
+            choiceText: choiceText,
+            churchModifier: churchModifier,
+            commonersModifier: commonersModifier,
+            merchantsModifier: merchantsModifier,
+            militaryModifier: militaryModifier,
+            bonusModifier: bonusModifier
+        )
+    }
 }

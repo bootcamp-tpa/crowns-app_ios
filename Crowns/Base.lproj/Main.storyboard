@@ -87,7 +87,82 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9M-Ne-hzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-771.01449275362324" y="11.383928571428571"/>
+            <point key="canvasLocation" x="-675" y="11"/>
+        </scene>
+        <!--Crown Me View Controller-->
+        <scene sceneID="cxN-lt-jcv">
+            <objects>
+                <viewController storyboardIdentifier="CrownMeViewController" id="seh-9B-cBp" customClass="CrownMeViewController" customModule="Crowns" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XJU-hu-Bj2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grB-AE-g08">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
+                                <color key="backgroundColor" red="0.25" green="0.16" blue="0.17000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="152" id="DkZ-Gh-FIf"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crown" translatesAutoresizingMaskIntoConstraints="NO" id="OSH-8h-Hto">
+                                <rect key="frame" x="155" y="361" width="104" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="GLE-w7-s2D"/>
+                                    <constraint firstAttribute="width" constant="104" id="azc-Tn-QHe"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUr-hq-dDG">
+                                <rect key="frame" x="161" y="431" width="92" height="44"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="38"/>
+                                <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYf-yR-bLx">
+                                <rect key="frame" x="24" y="475" width="366" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                                <color key="textColor" red="0.2470588235" green="0.16078431369999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcO-Ju-4me">
+                                <rect key="frame" x="24" y="526" width="366" height="50"/>
+                                <color key="backgroundColor" red="0.85882352939999995" green="0.50196078430000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9LK-ib-GHG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                                <state key="normal" title="CROWN ME">
+                                    <color key="titleColor" red="0.83137254900000002" green="0.98039215690000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCrownMeButton:" destination="seh-9B-cBp" eventType="touchUpInside" id="m3h-w9-oWZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89019607840000003" green="0.79215686269999996" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="grB-AE-g08" secondAttribute="trailing" id="6Th-DI-aI8"/>
+                            <constraint firstItem="grB-AE-g08" firstAttribute="leading" secondItem="XJU-hu-Bj2" secondAttribute="leading" id="AOB-JI-Ntk"/>
+                            <constraint firstItem="WUr-hq-dDG" firstAttribute="centerX" secondItem="OSH-8h-Hto" secondAttribute="centerX" id="ASQ-Ft-N8L"/>
+                            <constraint firstItem="UcO-Ju-4me" firstAttribute="centerX" secondItem="y2s-eT-SQG" secondAttribute="centerX" id="HQs-yP-1lP"/>
+                            <constraint firstItem="UcO-Ju-4me" firstAttribute="leading" secondItem="y2s-eT-SQG" secondAttribute="leading" constant="24" id="JUb-OD-1gy"/>
+                            <constraint firstItem="PYf-yR-bLx" firstAttribute="leading" secondItem="UcO-Ju-4me" secondAttribute="leading" id="Odf-qw-O9l"/>
+                            <constraint firstItem="WUr-hq-dDG" firstAttribute="top" secondItem="OSH-8h-Hto" secondAttribute="bottom" id="VhP-jg-ACk"/>
+                            <constraint firstItem="grB-AE-g08" firstAttribute="top" secondItem="XJU-hu-Bj2" secondAttribute="top" id="Wcv-nc-paD"/>
+                            <constraint firstItem="WUr-hq-dDG" firstAttribute="centerY" secondItem="y2s-eT-SQG" secondAttribute="centerY" id="gDg-nH-vrS"/>
+                            <constraint firstItem="OSH-8h-Hto" firstAttribute="centerX" secondItem="y2s-eT-SQG" secondAttribute="centerX" id="jyL-v5-Aa4"/>
+                            <constraint firstItem="PYf-yR-bLx" firstAttribute="centerX" secondItem="WUr-hq-dDG" secondAttribute="centerX" id="mDn-Fp-AWj"/>
+                            <constraint firstItem="PYf-yR-bLx" firstAttribute="top" secondItem="WUr-hq-dDG" secondAttribute="bottom" id="oxI-g4-IOr"/>
+                            <constraint firstItem="UcO-Ju-4me" firstAttribute="top" secondItem="PYf-yR-bLx" secondAttribute="bottom" constant="30" id="ubm-tJ-JpW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y2s-eT-SQG"/>
+                    </view>
+                    <connections>
+                        <outlet property="usernameLabel" destination="PYf-yR-bLx" id="eQz-Ue-CRp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKk-uQ-HHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96" y="11"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -164,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44.927536231884062" y="10.714285714285714"/>
+            <point key="canvasLocation" x="857" y="11"/>
         </scene>
         <!--Death View Controller-->
         <scene sceneID="ydb-FE-asT">
@@ -186,7 +261,6 @@
                                 </state>
                                 <connections>
                                     <action selector="didTapBackButton:" destination="XRl-ce-rmc" eventType="touchUpInside" id="5NB-yA-PEq"/>
-                                    <action selector="didTapStartButton:" destination="aP6-fT-wWN" eventType="touchUpInside" id="55d-r2-SHV"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skull" translatesAutoresizingMaskIntoConstraints="NO" id="lT2-n1-2mk">
@@ -260,10 +334,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hC9-WE-pQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="11"/>
+            <point key="canvasLocation" x="1645" y="11"/>
         </scene>
     </scenes>
     <resources>
+        <image name="crown" width="268" height="268"/>
         <image name="crowns-logo" width="289" height="140"/>
         <image name="skull" width="512" height="512"/>
     </resources>

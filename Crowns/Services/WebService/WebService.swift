@@ -29,10 +29,10 @@ final class WebServiceImp: WebService {
     }
 
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        authorizedRequest(
-            urlRequest: Request.createGame(),
-            completion: completion
-        )
+        let mockedDeck = Deck(cards: Array(repeating: Card.mock(), count: 10))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            completion(.success(mockedDeck))
+        })
     }
     
     private func authorizedRequest<T: Decodable>(
