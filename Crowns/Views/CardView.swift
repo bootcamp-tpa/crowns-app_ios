@@ -27,8 +27,8 @@ struct CardViewModel {
 class CardView: UIView {
 
     @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var choiceBackgroundView: UIView!
     @IBOutlet private weak var currentChoiceLabel: UILabel!
-    @IBOutlet private weak var cardTitleLabel: UILabel!
     @IBOutlet private weak var cardImage: UIImageView!
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
@@ -72,10 +72,7 @@ class CardView: UIView {
         contentView.layer.shadowOpacity = 1
         contentView.layer.shadowRadius = 4
         
-        backgroundColor = UIColor.clear
         
-        currentChoiceLabel.backgroundColor = UIColor.init(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5)
-        currentChoiceLabel.layer.masksToBounds = true
         
         addSubview(contentView)
     }
@@ -134,12 +131,20 @@ class CardView: UIView {
     }
     
     private func displayChoice(_ choice: Choice) {
+        switch choice {
+        case .left: currentChoiceLabel.textAlignment = .right
+        case .right: currentChoiceLabel.textAlignment = .left
+        case .none: break
+        }
+        
         if (choice == .none) {
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.choiceBackgroundView.alpha = 0
                 self.currentChoiceLabel.alpha = 0
             }, completion: nil)
         } else if choice != displayingChoice {
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.choiceBackgroundView.alpha = 1
                 self.currentChoiceLabel.alpha = 1
             }, completion: nil)
         }

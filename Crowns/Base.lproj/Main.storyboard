@@ -114,19 +114,39 @@
                                     <constraint firstAttribute="height" constant="152" id="vpI-Ma-BpQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hk0-9A-wlH">
+                                <rect key="frame" x="207" y="152" width="0.0" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="999" constant="20" id="KTU-Wa-PYI"/>
+                                    <constraint firstAttribute="width" id="Uca-rH-orc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYd-gf-9co">
+                                <rect key="frame" x="207" y="740" width="0.0" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="1Bf-o9-Zk8"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.85999999999999999" green="0.75" blue="0.63" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Df8-os-ngQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2GT-ea-dpb"/>
+                            <constraint firstItem="AYd-gf-9co" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2LB-qm-9Ne"/>
+                            <constraint firstItem="Df8-os-ngQ" firstAttribute="top" secondItem="Hk0-9A-wlH" secondAttribute="bottom" id="6Cl-bA-Nvp"/>
                             <constraint firstItem="fH6-OZ-scf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="76M-Dv-1sw"/>
+                            <constraint firstItem="Hk0-9A-wlH" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="8yd-3l-5VN"/>
+                            <constraint firstItem="AYd-gf-9co" firstAttribute="top" secondItem="Df8-os-ngQ" secondAttribute="bottom" id="DqS-Ez-lbn"/>
                             <constraint firstAttribute="bottom" secondItem="Z2S-bP-uYp" secondAttribute="bottom" id="IAf-mj-pDL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z2S-bP-uYp" secondAttribute="trailing" id="KJb-Pg-Nok"/>
                             <constraint firstAttribute="top" secondItem="fH6-OZ-scf" secondAttribute="top" id="P0M-fG-EgX"/>
                             <constraint firstItem="Z2S-bP-uYp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P7v-09-cXZ"/>
-                            <constraint firstItem="Z2S-bP-uYp" firstAttribute="top" secondItem="Df8-os-ngQ" secondAttribute="bottom" constant="35" id="ZVG-qJ-6rE"/>
-                            <constraint firstItem="Df8-os-ngQ" firstAttribute="top" secondItem="fH6-OZ-scf" secondAttribute="bottom" priority="999" constant="20" id="acg-fJ-tYy"/>
+                            <constraint firstItem="Hk0-9A-wlH" firstAttribute="top" secondItem="fH6-OZ-scf" secondAttribute="bottom" id="eoa-Eo-YZJ"/>
                             <constraint firstItem="Df8-os-ngQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="gUP-5R-OrD"/>
+                            <constraint firstItem="AYd-gf-9co" firstAttribute="height" secondItem="Hk0-9A-wlH" secondAttribute="height" constant="15" id="pF4-nj-gmt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fH6-OZ-scf" secondAttribute="trailing" id="r4X-si-HMa"/>
+                            <constraint firstItem="Z2S-bP-uYp" firstAttribute="top" secondItem="AYd-gf-9co" secondAttribute="bottom" id="yoK-LU-04b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -138,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="11"/>
+            <point key="canvasLocation" x="44.927536231884062" y="10.714285714285714"/>
         </scene>
         <!--Death View Controller-->
         <scene sceneID="ydb-FE-asT">

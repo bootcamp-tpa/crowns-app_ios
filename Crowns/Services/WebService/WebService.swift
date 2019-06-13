@@ -24,11 +24,13 @@ final class WebServiceImp: WebService {
     
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
         // TODO: call api once token handling is ready
-        let leftChoice = CardChoice(nextCard: nil, choiceText: "Left", churchModifier: 15, commonersModifier: 12, merchantsModifier: 10, militaryModifier: -10, bonusModifier: 2)
-        let rightChoice = CardChoice(nextCard: nil, choiceText: "Right", churchModifier: 12, commonersModifier: -10, merchantsModifier: 10, militaryModifier: 10, bonusModifier: 10)
-        let card = Card(id: 0, cardText: "CARD1", cardType: .event, cardImage: .church, leftChoice: leftChoice, rightChoice: rightChoice)
+        let leftChoice = CardChoice(nextCard: nil, choiceText: "Left Choice", churchModifier: 15, commonersModifier: 12, merchantsModifier: 10, militaryModifier: -10, bonusModifier: 2)
+        let rightChoice = CardChoice(nextCard: nil, choiceText: "Right Choice", churchModifier: 12, commonersModifier: -10, merchantsModifier: 10, militaryModifier: 10, bonusModifier: 10)
+        let card = Card(id: 0, cardText: "Some text\nThat is multiline", cardType: .event, cardImage: .church, leftChoice: leftChoice, rightChoice: rightChoice)
         let deck = Deck(cards: Array(repeating: card, count: 1))
-        completion(.success(deck))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            completion(.success(deck))
+        })
     }
     
     private func request<T: Decodable>(

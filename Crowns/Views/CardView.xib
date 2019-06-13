@@ -12,36 +12,49 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CardView" customModule="Crowns" customModuleProvider="target">
             <connections>
                 <outlet property="cardImage" destination="bBU-0g-MWL" id="ZVL-jf-IYI"/>
+                <outlet property="choiceBackgroundView" destination="ggv-jC-mtB" id="yxB-iT-5Yx"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Pbn-XI-7X5"/>
-                <outlet property="currentChoiceLabel" destination="WTf-ri-nJ1" id="FPx-CR-cxI"/>
+                <outlet property="currentChoiceLabel" destination="WTf-ri-nJ1" id="1Ke-xo-TaM"/>
                 <outlet property="panGesture" destination="jSa-1n-FH9" id="f9R-Jc-qmT"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="318" height="318"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-0g-MWL">
                     <rect key="frame" x="66" y="48" width="186" height="222"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTf-ri-nJ1">
-                    <rect key="frame" x="0.0" y="0.0" width="318" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggv-jC-mtB">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="38"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTf-ri-nJ1">
+                            <rect key="frame" x="15" y="9" width="288" height="20.5"/>
+                            <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="18"/>
+                            <color key="textColor" red="0.83137254900000002" green="0.98039215690000003" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="WTf-ri-nJ1" firstAttribute="centerY" secondItem="ggv-jC-mtB" secondAttribute="centerY" id="SWE-1G-29u"/>
+                        <constraint firstItem="WTf-ri-nJ1" firstAttribute="centerX" secondItem="ggv-jC-mtB" secondAttribute="centerX" id="azZ-9q-Hs6"/>
+                        <constraint firstItem="WTf-ri-nJ1" firstAttribute="leading" secondItem="ggv-jC-mtB" secondAttribute="leading" constant="15" id="l5R-Ev-X4j"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.85999999999999999" green="0.5" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="WTf-ri-nJ1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="16p-qg-TXe"/>
-                <constraint firstAttribute="bottom" secondItem="bBU-0g-MWL" secondAttribute="bottom" constant="48" id="37j-lZ-Pdf"/>
-                <constraint firstAttribute="trailing" secondItem="bBU-0g-MWL" secondAttribute="trailing" constant="66" id="Ccy-Nk-Ery"/>
+                <constraint firstItem="bBU-0g-MWL" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3gD-Ov-Shy"/>
                 <constraint firstItem="bBU-0g-MWL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="48" id="DQ2-7W-PHh"/>
-                <constraint firstAttribute="trailing" secondItem="WTf-ri-nJ1" secondAttribute="trailing" id="DhP-FE-oSm"/>
+                <constraint firstItem="bBU-0g-MWL" firstAttribute="top" secondItem="ggv-jC-mtB" secondAttribute="bottom" constant="10" id="TrA-u9-74t"/>
                 <constraint firstItem="bBU-0g-MWL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="66" id="VBf-1q-pRs"/>
-                <constraint firstItem="WTf-ri-nJ1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="x9x-X3-RhG"/>
+                <constraint firstItem="bBU-0g-MWL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Wje-bX-noD"/>
+                <constraint firstAttribute="trailing" secondItem="ggv-jC-mtB" secondAttribute="trailing" id="k49-H2-RE4"/>
+                <constraint firstItem="ggv-jC-mtB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kEw-vA-HMC"/>
+                <constraint firstItem="ggv-jC-mtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pAd-j9-NGI"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
