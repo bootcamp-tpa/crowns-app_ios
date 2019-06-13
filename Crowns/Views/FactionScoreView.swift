@@ -6,14 +6,12 @@
 
 import UIKit
 
-
 enum ModifierMode {
     case none
     case decrease
     case increase
 }
 
-@IBDesignable
 class FactionScoreView: UIView {
 
     @IBOutlet var contentView: UIView!

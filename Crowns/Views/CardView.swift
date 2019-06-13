@@ -19,12 +19,15 @@ protocol CardViewDelegate {
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice)
 }
 
-@IBDesignable
+struct CardViewModel {
+    
+}
+
 class CardView: UIView {
 
     @IBOutlet var contentView: UIView!
-
     @IBOutlet weak var currentChoiceLabel: UILabel!
+    @IBOutlet weak var cardTitleLabel: UILabel!
     @IBOutlet weak var cardImage: UIImageView!
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
@@ -45,7 +48,7 @@ class CardView: UIView {
         initSubviews()
     }
     
-    func initSubviews() {
+    private func initSubviews() {
         // standard initialization logic
         let bundle = Bundle(for: type(of: self))
         let nibName = type(of: self).description().components(separatedBy: ".").last!

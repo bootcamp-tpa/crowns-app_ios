@@ -6,7 +6,6 @@
 
 import UIKit
 
-@IBDesignable
 class ScoreView: UIView {
 
     private let valueLayer = CALayer()
