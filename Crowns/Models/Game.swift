@@ -3,6 +3,15 @@ struct Game: Codable {
     static var initialKingAge: Int { return 14 }
     static var initialFactionScore: Int { return 50 }
     
+    var factionScores: [Int] {
+        return [
+            churchScore,
+            commonersScore,
+            militaryScore,
+            merchantsScore
+        ]
+    }
+    
     var currentCard: Card?
     var cards: [Card]
     var turnsPlayed = 0

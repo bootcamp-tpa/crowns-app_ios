@@ -108,7 +108,7 @@ class GameViewModel {
         game.commonersScore += choice.commonersModifier
         game.militaryScore += choice.militaryModifier
         game.merchantsScore += choice.merchantsModifier
-        game.score += choice.bonusModifier
+        game.kingAge += choice.bonusModifier
         game.turnsPlayed += 1
         if game.turnsPlayed % 3 == 0 {
             game.kingAge += 1
@@ -122,6 +122,7 @@ class GameViewModel {
         return game.currentCard == nil
             || game.currentCard!.cardType == .death
             || game.kingAge > maxKingAge
+            || game.factionScores.contains(where: { $0 >= 100 || $0 <= 0 })
     }
     
     private func finishGame() {

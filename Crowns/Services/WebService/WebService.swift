@@ -1,4 +1,5 @@
 import Foundation
+import SwiftJWT
 
 protocol WebService {
     func createUser(
@@ -11,6 +12,11 @@ protocol WebService {
 final class WebServiceImp: WebService {
     private lazy var session = URLSession(configuration: .default)
     private static let decoder = JSONDecoder()
+    private let storage: JSONStorage
+    
+    init(storage: JSONStorage = JSONStorageImp()) {
+        self.storage = storage
+    }
     
     func createUser(
         withUsername username: String,

@@ -10,6 +10,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     private var viewModel: GameViewModel!
 
     override func viewDidLoad() {
@@ -57,11 +58,11 @@ extension GameViewController: GameViewModelDelegate {
     }
     
     func showLoadingIndicator(_ show: Bool) {
-        // TODO: showLoading
-    }
-    
-    func showErrorAlert(withMessage message: String) {
-        // TODO: allow user to retry
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
     }
     
     func showDeathController(forUser user: User, kingAge: Int) {
