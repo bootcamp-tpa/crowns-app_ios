@@ -6,16 +6,27 @@
 
 import UIKit
 
-struct FactionsScoreViewModel {
+struct FactionsScoreViewModes {
     let churchModifierMode: ModifierMode
     let commonersModifierMode: ModifierMode
     let militaryModifierMode: ModifierMode
     let merchantsModifierMode: ModifierMode
+    
+    static var none: FactionsScoreViewModes {
+        return FactionsScoreViewModes(
+            churchModifierMode: .none,
+            commonersModifierMode: .none,
+            militaryModifierMode: .none,
+            merchantsModifierMode: .none
+        )
+    }
 }
 
-struct FactionScoreViewChange {
-    let faction: Faction
-    let score: Int
+struct FactionsScoreViewModel {
+    let churchScore: Int
+    let commonersScore: Int
+    let militaryScore: Int
+    let merchantsScore: Int
 }
 
 class FactionsScoreView: UIView {
@@ -36,20 +47,18 @@ class FactionsScoreView: UIView {
         initSubviews()
     }
     
-    func update(withModel model: FactionsScoreViewModel) {
-        churchScoreView.modifierMode = model.churchModifierMode
-        commonersScoreView.modifierMode = model.commonersModifierMode
-        militaryScoreView.modifierMode = model.militaryModifierMode
-        merchantsScoreView.modifierMode = model.merchantsModifierMode
+    func update(withModes modes: FactionsScoreViewModes) {
+        churchScoreView.modifierMode = modes.churchModifierMode
+        commonersScoreView.modifierMode = modes.commonersModifierMode
+        militaryScoreView.modifierMode = modes.militaryModifierMode
+        merchantsScoreView.modifierMode = modes.merchantsModifierMode
     }
     
-    func update(withChange change: FactionScoreViewChange) {
-        switch change.faction {
-        case .church: churchScoreView.score = change.score
-        case .commoners: commonersScoreView.score = change.score
-        case .military: militaryScoreView.score = change.score
-        case .merchants: merchantsScoreView.score = change.score
-        }
+    func update(withModel model: FactionsScoreViewModel) {
+        churchScoreView.score = model.churchScore
+        commonersScoreView.score = model.commonersScore
+        militaryScoreView.score = model.militaryScore
+        merchantsScoreView.score = model.merchantsScore
     }
     
     private func initSubviews() {

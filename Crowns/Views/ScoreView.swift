@@ -11,15 +11,15 @@ class ScoreView: UIView {
     private let valueLayer = CALayer()
     private let shapeLayer = CALayer()
     
-    var image : CGImage? {
+    var image: CGImage? {
         didSet {
             shapeLayer.contents = image
         }
     }
     
-    var percentage : NSNumber = 0.5 {
+    var percentage: NSNumber = 0.5 {
         didSet {
-            valueLayer.setNeedsLayout()
+            updateLayers()
         }
     }
 
@@ -47,10 +47,14 @@ class ScoreView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let percentageToValue = bounds.height * CGFloat(truncating: percentage);
+        updateLayers()
+    }
+    
+    // TODO: Make sure that we dont call it to often
+    private func updateLayers() {
+        let percentageToValue = bounds.height * CGFloat(truncating: percentage)
         let valueFrame = CGRect(x: 0, y: bounds.height - percentageToValue, width: bounds.width, height: percentageToValue)
         valueLayer.frame = valueFrame
         shapeLayer.frame = bounds
     }
-
 }

@@ -5,7 +5,7 @@ class UsernameViewController: UIViewController {
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var usernameTextField: UITextField!
     
-    private lazy var interactor: UsernameViewModel = {
+    private lazy var viewModel: UsernameViewModel = {
         let interactor = UsernameViewModel(
             storage: JSONStorageImp(),
             webService: WebServiceImp()
@@ -23,7 +23,7 @@ class UsernameViewController: UIViewController {
     }
 
     @IBAction private func textFieldValueChanged(_ sender: UITextField) {
-        interactor.textFieldValueDidChange(to: sender.text)
+        viewModel.textFieldValueDidChange(to: sender.text)
     }
     
     @IBAction private func textFieldDidEndOnExit(_ sender: UITextField) {
@@ -32,7 +32,7 @@ class UsernameViewController: UIViewController {
     
     @IBAction private func didTapStartButton(_ sender: Any) {
         usernameTextField.resignFirstResponder()
-        interactor.didTapStartButton()
+        viewModel.didTapStartButton()
     }
 }
 

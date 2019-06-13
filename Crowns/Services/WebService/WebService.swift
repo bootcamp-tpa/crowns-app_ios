@@ -5,7 +5,7 @@ protocol WebService {
         withUsername username: String,
         completion: @escaping (Result<User, ApiError>) -> Void
     )
-    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void)
+    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
@@ -22,11 +22,13 @@ final class WebServiceImp: WebService {
         )
     }
     
-    func getDeck(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        request(
-            request: Request.getDeck(),
-            completion: completion
-        )
+    func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
+        // TODO: call api once token handling is ready
+        let leftChoice = CardChoice(nextCard: nil, choiceText: "Left", churchModifier: 15, commonersModifier: 12, merchantsModifier: 10, militaryModifier: -10, bonusModifier: 2)
+        let rightChoice = CardChoice(nextCard: nil, choiceText: "Right", churchModifier: 12, commonersModifier: -10, merchantsModifier: 10, militaryModifier: 10, bonusModifier: 10)
+        let card = Card(id: 0, cardText: "CARD1", cardType: .event, cardImage: .church, leftChoice: leftChoice, rightChoice: rightChoice)
+        let deck = Deck(cards: Array(repeating: card, count: 1))
+        completion(.success(deck))
     }
     
     private func request<T: Decodable>(

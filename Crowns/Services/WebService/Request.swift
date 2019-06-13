@@ -5,7 +5,7 @@ struct Request {
         return request(path: "/user/create", method: .post, params: ["name": username])
     }
     
-    static func getDeck() -> URLRequest {
+    static func createGame() -> URLRequest {
         return request(path: "/game/get", method: .get)
     }
     

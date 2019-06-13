@@ -14,21 +14,22 @@ enum Choice {
     case right
 }
 
-protocol CardViewDelegate {
+protocol CardViewDelegate: AnyObject {
     func cardView(_ cardView: CardView, didDisplayChoice choice: Choice)
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice)
 }
 
 struct CardViewModel {
-    
+    let title: String
+    let image: String
 }
 
 class CardView: UIView {
 
-    @IBOutlet var contentView: UIView!
-    @IBOutlet weak var currentChoiceLabel: UILabel!
-    @IBOutlet weak var cardTitleLabel: UILabel!
-    @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private weak var currentChoiceLabel: UILabel!
+    @IBOutlet private weak var cardTitleLabel: UILabel!
+    @IBOutlet private weak var cardImage: UIImageView!
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
@@ -36,7 +37,7 @@ class CardView: UIView {
     var recognizedChoice : Choice = .none
     var displayingChoice : Choice = .none
 
-    var delegate: CardViewDelegate?
+    weak var delegate: CardViewDelegate?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -46,6 +47,15 @@ class CardView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
+    }
+    
+    func update(withModel model: CardViewModel) {
+        //        cardTitleLabel.text = model.title // TODO: add subview
+        cardImage.image = UIImage(named: model.image)
+    }
+    
+    func update(withChoiceName name: String?) {
+        currentChoiceLabel.text = name
     }
     
     private func initSubviews() {
@@ -71,7 +81,7 @@ class CardView: UIView {
         addSubview(contentView)
     }
     
-    @IBAction func handlePan(_ gestureRecognizer : UIPanGestureRecognizer) {
+    @IBAction private func handlePan(_ gestureRecognizer : UIPanGestureRecognizer) {
         let maxMovementValue = frame.width / 4.0
         var move : CATransform3D?
         var rotate : CATransform3D?
@@ -89,10 +99,8 @@ class CardView: UIView {
             
             if completeness == 1 {
                 recognizedChoice = .right
-                print("right")
             } else if completeness == -1 {
                 recognizedChoice = .left
-                print("left")
             } else {
                 recognizedChoice = .none
             }
@@ -108,7 +116,6 @@ class CardView: UIView {
             let radians = CGFloat(degrees * .pi / 180)
             rotate = CATransform3DMakeRotation(radians, 0.0, 0.0, 1.0)
         case .ended:
-            // TO-DO: send answer
             if recognizedChoice != .none {
                 delegate?.cardView(self, didFinalizeChoice: recognizedChoice)
                 completeChoice()
@@ -127,24 +134,21 @@ class CardView: UIView {
         
     }
     
-    func displayChoice(_ choice: Choice) {
+    private func displayChoice(_ choice: Choice) {
         if (choice == .none) {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 0
             }, completion: nil)
-        }
-        else if (choice != displayingChoice) {
+        } else if choice != displayingChoice {
             UIView.animate(withDuration: 0.3, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.currentChoiceLabel.alpha = 1
-                self.currentChoiceLabel.text = choice == .left ? "left" : "right";
             }, completion: nil)
-            delegate?.cardView(self, didDisplayChoice: choice)
         }
         displayingChoice = choice
+        delegate?.cardView(self, didDisplayChoice: choice)
     }
     
-    func completeChoice() {
-        print("completed")
+    private func completeChoice() {
         let direction = CGFloat(recognizedChoice == .left ? -1.0 : 1.0)
         let finalXPosition = direction * (frame.width * 0.66)
         let finalDegrees = 10 * direction
