@@ -39,11 +39,14 @@ final class WebServiceImp: WebService {
         urlRequest: URLRequest,
         completion: @escaping (Result<T, ApiError>) -> Void
     ) {
-        guard let authorizedURLRequest = requestAuthorizer.authorize(urlRequest) else {
-            completion(.failure(ApiError.unknown))
-            return
+        let authorizationOutcome = requestAuthorizer.authorize(urlRequest)
+        switch authorizationOutcome {
+        case .success(let authorizedURLRequest):
+            request(urlRequest: authorizedURLRequest, completion: completion)
+        case .failure(let error):
+            completion(.failure(error))
         }
-        request(urlRequest: authorizedURLRequest, completion: completion)
+        
     }
     
     private func request<T: Decodable>(

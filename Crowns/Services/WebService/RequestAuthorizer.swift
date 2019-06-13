@@ -7,20 +7,22 @@ struct RequestAuthorizer {
         self.storage = storage
     }
     
-    func authorize(_ request: URLRequest) -> URLRequest? {
-        guard let user = storage.getUser() else { return nil }
+    func authorize(_ request: URLRequest) -> Result<URLRequest, ApiError> {
+        guard let user = storage.getUser(),
+              let signedJWT = createSignedJWT(forUser: user) else {
+                return .failure(.unknown)
+        }
         var request = request
-        let signedJWT = createSignedJWT(forUser: user)
         request.setValue(signedJWT, forHTTPHeaderField: "Token")
-        return request
+        return .success(request)
     }
     
-    private func createSignedJWT(forUser user: User) -> String {
+    private func createSignedJWT(forUser user: User) -> String? {
         let expiresAt = Date(timeIntervalSinceNow: 60 * 60 * 24 * 30)
         let claims = CrownsClaims(name: user.name, expiration: expiresAt)
         var jwt = JWT(claims: claims)
-        let key = user.token.data(using: .utf8)!
-        return try! jwt.sign(using: .hs256(key: key))
+        guard let key = user.token.data(using: .utf8) else { return nil }
+        return try? jwt.sign(using: .hs256(key: key))
     }
 }
 
