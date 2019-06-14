@@ -7,6 +7,11 @@ protocol WebService {
         completion: @escaping (Result<User, ApiError>) -> Void
     )
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void)
+    func submitHighscore(
+        _ highscore: Highscore,
+        completion: @escaping (Result<Void, ApiError>) -> Void
+    )
+    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
@@ -33,6 +38,24 @@ final class WebServiceImp: WebService {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             completion(.success(mockedDeck))
         })
+    }
+    
+    func submitHighscore(
+        _ highscore: Highscore,
+        completion: @escaping (Result<Void, ApiError>) -> Void
+    ) {
+        let comp: (Result<String, ApiError>) -> Void = { completion($0.map { _ in () }) }
+        authorizedRequest(
+            urlRequest: Request.submitHighscore(highscore),
+            completion: comp
+        )
+    }
+    
+    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void) {
+        authorizedRequest(
+            urlRequest: Request.getHighscores(),
+            completion: completion
+        )
     }
     
     private func authorizedRequest<T: Decodable>(
