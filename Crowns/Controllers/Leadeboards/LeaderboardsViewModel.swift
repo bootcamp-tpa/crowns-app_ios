@@ -2,11 +2,12 @@ import Foundation
 
 protocol LeaderboardsViewModelDelegate: AnyObject {
     func reloadTable()
+    func showErrorAlert(withMessage message: String)
 }
 
 class LeaderboardsViewModel {
     weak var delegate: LeaderboardsViewModelDelegate!
-    private let highscores: Highscores
+    private var highscores: Highscores
     private let webService: WebService
     private let scoreFormatter: GameScoreFormatter
     
@@ -21,7 +22,15 @@ class LeaderboardsViewModel {
     }
     
     func didPullToRefresh() {
-        
+        webService.getHighscores(completion: { [weak self] response in
+            switch response {
+            case .success(let highscores):
+                self?.highscores = highscores
+                self?.delegate.reloadTable()
+            case .failure(let error):
+                self?.delegate.showErrorAlert(withMessage: error.title)
+            }
+        })
     }
     
     func numberOfCells() -> Int {
