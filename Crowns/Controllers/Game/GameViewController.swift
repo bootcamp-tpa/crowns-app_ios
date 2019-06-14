@@ -7,10 +7,10 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
-    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     private var viewModel: GameViewModel!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -44,7 +44,7 @@ extension GameViewController : CardViewDelegate {
     }
 }
 
-extension GameViewController: GameViewModelDelegate {
+extension GameViewController: GameViewModelDelegate, LoadableViewController {
     func updateFactionsScore(withModel model: FactionsScoreViewModel) {
         factionsScoreView.update(withModel: model)
     }
@@ -55,14 +55,6 @@ extension GameViewController: GameViewModelDelegate {
 
     func updateGameStats(withModel model: GameStatsViewModel) {
         gameStatsView.update(withModel: model)
-    }
-    
-    func showLoadingIndicator(_ show: Bool) {
-        if show {
-            loadingIndicator.startAnimating()
-        } else {
-            loadingIndicator.stopAnimating()
-        }
     }
     
     func showDeathController(forUser user: User, finishedGame: Game) {

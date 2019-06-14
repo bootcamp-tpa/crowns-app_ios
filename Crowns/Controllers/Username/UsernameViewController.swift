@@ -1,7 +1,7 @@
 import UIKit
 
 class UsernameViewController: UIViewController {
-    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var usernameTextField: UITextField!
     
@@ -36,15 +36,7 @@ class UsernameViewController: UIViewController {
     }
 }
 
-extension UsernameViewController: UsernameViewModelDelegate {
-    func showLoadingIndicator(_ show: Bool) {
-        if show {
-            loadingIndicator.startAnimating()
-        } else {
-            loadingIndicator.stopAnimating()
-        }
-    }
-    
+extension UsernameViewController: UsernameViewModelDelegate, LoadableViewController {
     func enableStartButton(_ enable: Bool) {
         startButton.isEnabled = enable
         if enable {

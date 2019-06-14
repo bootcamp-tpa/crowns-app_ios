@@ -1,6 +1,7 @@
 import UIKit
 
 class DeathViewController: UIViewController {
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var usernameLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
     
@@ -9,6 +10,7 @@ class DeathViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsText()
+        viewModel.viewDidLoad()
     }
     
     private func setLabelsText() {
@@ -16,14 +18,23 @@ class DeathViewController: UIViewController {
         scoreLabel.text = viewModel.score
     }
     
+    @IBAction private func didTapCheckLeaderboardsButton(_ sender: Any) {
+        viewModel.didTapCheckLeaderboardsButton()
+    }
+    
     @IBAction private func didTapBackButton(_ sender: Any) {
         viewModel.didTapBackButton()
     }
 }
 
-extension DeathViewController: DeathViewModelDelegate {
+extension DeathViewController: DeathViewModelDelegate, LoadableViewController {
     func dismissToCrownMeController() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func showLeaderboardsController(withHighscores highscores: Highscores) {
+        let controller = LeaderboardsViewController.instantiate(withHighscores: highscores)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

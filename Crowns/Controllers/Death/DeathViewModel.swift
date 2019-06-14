@@ -1,5 +1,6 @@
-protocol DeathViewModelDelegate: AnyObject {
+protocol DeathViewModelDelegate: AnyObject, LoadableViewModelDelegate {
     func dismissToCrownMeController()
+    func showLeaderboardsController(withHighscores highscores: Highscores)
 }
 
 class DeathViewModel {
@@ -17,6 +18,14 @@ class DeathViewModel {
         self.username = user.name
         self.webService = webService
         self.score = scoreFormatter.formattedScore(forAge: finishedGame.kingAge)
+    }
+    
+    func viewDidLoad() {
+        
+    }
+    
+    func didTapCheckLeaderboardsButton() {
+        
     }
     
     func didTapBackButton() {

@@ -30,6 +30,7 @@
 		2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81522B3872E0014F885 /* LeaderboardsViewModel.swift */; };
 		2DC8D81822B38BF50014F885 /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81722B38BF50014F885 /* Highscore.swift */; };
 		2DC8D81A22B38EBC0014F885 /* GameScoreFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */; };
+		2DC8D81D22B394050014F885 /* LoadableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -99,6 +100,7 @@
 		2DC8D81522B3872E0014F885 /* LeaderboardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsViewModel.swift; sourceTree = "<group>"; };
 		2DC8D81722B38BF50014F885 /* Highscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreFormatter.swift; sourceTree = "<group>"; };
+		2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModelDelegate.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -229,6 +231,14 @@
 			path = Leadeboards;
 			sourceTree = "<group>";
 		};
+		2DC8D81B22B393F70014F885 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2DFA382322AFA7F0000471E2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +307,7 @@
 		4DE57A7C224BC12800D37B57 /* Crowns */ = {
 			isa = PBXGroup;
 			children = (
+				2DC8D81B22B393F70014F885 /* Protocols */,
 				2DC8D80022B261E50014F885 /* Extensions */,
 				2DFA382322AFA7F0000471E2 /* Services */,
 				4DE8C2F1225A53720073DCD9 /* Controllers */,
@@ -609,6 +620,7 @@
 				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				2D0E496622B0E78800973E6F /* Game.swift in Sources */,
 				2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */,
+				2DC8D81D22B394050014F885 /* LoadableViewModelDelegate.swift in Sources */,
 				4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */,
 				4DE57A80224BC12800D37B57 /* GameViewController.swift in Sources */,
 				2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */,
