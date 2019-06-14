@@ -4,6 +4,7 @@ enum TurnOutcome {
 }
 
 class GameController {
+    static var initialYear: Int { return 1600 }
     static var initialScore: Int { return 0 }
     static var initialKingAge: Int { return 14 }
     static var initialFactionScore: Int { return 50 }
