@@ -7,11 +7,16 @@ protocol WebService {
         completion: @escaping (Result<User, ApiError>) -> Void
     )
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void)
+    func submitHighscore(
+        _ highscore: Highscore,
+        completion: @escaping (Result<Void, ApiError>) -> Void
+    )
+    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
     private lazy var session = URLSession(configuration: .default)
-    private static let decoder = JSONDecoder()
+    private static let decoder = JSONDecoder.fromSnakeCaseDecoder
     private let requestAuthorizer: RequestAuthorizer
     
     init(storage: JSONStorage = JSONStorageImp()) {
@@ -29,10 +34,28 @@ final class WebServiceImp: WebService {
     }
 
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        let mockedDeck = Deck(cards: Array(repeating: Card.mock(), count: 10))
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            completion(.success(mockedDeck))
-        })
+        authorizedRequest(
+            urlRequest: Request.createGame(),
+            completion: completion
+        )
+    }
+    
+    func submitHighscore(
+        _ highscore: Highscore,
+        completion: @escaping (Result<Void, ApiError>) -> Void
+    ) {
+        let comp: (Result<String, ApiError>) -> Void = { completion($0.map { _ in () }) }
+        authorizedRequest(
+            urlRequest: Request.submitHighscore(highscore),
+            completion: comp
+        )
+    }
+    
+    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void) {
+        authorizedRequest(
+            urlRequest: Request.getHighscores(),
+            completion: completion
+        )
     }
     
     private func authorizedRequest<T: Decodable>(

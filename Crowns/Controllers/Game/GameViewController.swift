@@ -7,10 +7,10 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var deckView: DeckView!
     @IBOutlet private weak var gameStatsView: GameStatsView!
     @IBOutlet private weak var factionsScoreView: FactionsScoreView!
-    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     private var viewModel: GameViewModel!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
