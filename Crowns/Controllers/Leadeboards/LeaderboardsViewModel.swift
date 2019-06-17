@@ -49,7 +49,7 @@ class LeaderboardsViewModel {
     
     private func mapHighscoreToScoreString(_ highscore: Highscore) -> String {
         let ruledFor = highscore.age - GameController.initialKingAge
-        let yearsString = ruledFor > 1 ? "years" : "year"
+        let yearsString = ruledFor == 1 ? "year" : "years"
         let ruledForString = "\(ruledFor) \(yearsString) in power"
         let scoreString = scoreFormatter.formattedScore(forAge: highscore.age)
         return ruledForString + " " + scoreString

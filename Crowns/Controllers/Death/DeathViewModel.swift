@@ -58,7 +58,6 @@ private func mapGameToHighscore(_ game: Game, forUser user: User) -> Highscore {
     return Highscore(
         name: user.name,
         age: game.kingAge,
-        submittedAt: 0,
         start: GameController.initialYear,
         scores: scores
     )

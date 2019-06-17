@@ -126,7 +126,7 @@ class GameViewModel {
 
 private func mapChoiceToFactionsScoreViewModes(_ choice: CardChoice) -> FactionsScoreViewModes {
     return FactionsScoreViewModes(
-        churchModifierMode: modifierMode(from: choice.churchModifier),
+        churchModifierMode: modifierMode(from: choice.churchModifier ?? 0),
         commonersModifierMode: modifierMode(from: choice.commonersModifier),
         militaryModifierMode: modifierMode(from: choice.militaryModifier),
         merchantsModifierMode: modifierMode(from: choice.merchantsModifier)

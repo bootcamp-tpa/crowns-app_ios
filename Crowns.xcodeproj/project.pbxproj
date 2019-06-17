@@ -31,6 +31,7 @@
 		2DC8D81822B38BF50014F885 /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81722B38BF50014F885 /* Highscore.swift */; };
 		2DC8D81A22B38EBC0014F885 /* GameScoreFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */; };
 		2DC8D81D22B394050014F885 /* LoadableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */; };
+		2DC8D82122B3E14E0014F885 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D82022B3E14E0014F885 /* JSONCoding.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
 		2DFA382922AFA8E0000471E2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382822AFA8E0000471E2 /* Card.swift */; };
@@ -101,6 +102,7 @@
 		2DC8D81722B38BF50014F885 /* Highscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreFormatter.swift; sourceTree = "<group>"; };
 		2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModelDelegate.swift; sourceTree = "<group>"; };
+		2DC8D82022B3E14E0014F885 /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2DFA382822AFA8E0000471E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				2DC8D80122B261F00014F885 /* UIViewController.swift */,
+				2DC8D82022B3E14E0014F885 /* JSONCoding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -624,6 +627,7 @@
 				4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */,
 				4DE57A80224BC12800D37B57 /* GameViewController.swift in Sources */,
 				2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */,
+				2DC8D82122B3E14E0014F885 /* JSONCoding.swift in Sources */,
 				2DC8D81822B38BF50014F885 /* Highscore.swift in Sources */,
 				4D3EC8AC224C170B0000CF5C /* CardView.swift in Sources */,
 				4D25565022510760004D5EFC /* GameStatsView.swift in Sources */,

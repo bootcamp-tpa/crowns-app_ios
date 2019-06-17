@@ -13,7 +13,6 @@ struct Highscore: Codable {
     
     let name: String
     let age: Int
-    let submittedAt: Int
     let start: Int
     let scores: Scores
 }

@@ -21,23 +21,4 @@ struct Card: Codable {
     let cardImage: Image
     let leftChoice: CardChoice
     let rightChoice: CardChoice
-    
-    // TODO: Remove once api starts working correctly
-    static func mock(
-        id: String = "1",
-        cardText: String = "Text",
-        cardType: CardType = .event,
-        cardImage: Image = .misc,
-        leftChoice: CardChoice = .mock(),
-        rightChoice: CardChoice = .mock()
-    ) -> Card {
-        return Card(
-            id: id,
-            cardText: cardText,
-            cardType: cardType,
-            cardImage: cardImage,
-            leftChoice: leftChoice,
-            rightChoice: rightChoice
-        )
-    }
 }

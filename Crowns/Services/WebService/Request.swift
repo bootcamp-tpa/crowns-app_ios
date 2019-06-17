@@ -54,8 +54,7 @@ private enum Method: String {
 
 private extension Encodable {
     var toBodyData: Data? {
-        let encoder = JSONEncoder()
-        encoder.keyEncodingStrategy = .convertToSnakeCase
+        let encoder = JSONEncoder.toSnakeCaseEncoder
         return try? encoder.encode(self)
     }
 }

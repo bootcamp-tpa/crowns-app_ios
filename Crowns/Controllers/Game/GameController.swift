@@ -22,17 +22,17 @@ class GameController {
     }
     
     private func updateGame(withChoice choice: CardChoice) {
-        game.churchScore += choice.churchModifier
+        game.churchScore += choice.churchModifier ?? 0
         game.commonersScore += choice.commonersModifier
         game.militaryScore += choice.militaryModifier
         game.merchantsScore += choice.merchantsModifier
-        game.kingAge += choice.bonusModifier
+        game.kingAge += choice.bonusModifier ?? 0
         game.turnsPlayed += 1
         if game.turnsPlayed % 3 == 0 {
             game.kingAge += 1
             game.score += 1
         }
-        game.currentCard = choice.nextCard ?? game.cards.first
+        game.currentCard = choice.next ?? game.cards.first
         game.cards = Array(game.cards.dropFirst())
     }
     

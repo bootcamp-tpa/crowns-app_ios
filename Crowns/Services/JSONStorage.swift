@@ -8,8 +8,8 @@ protocol JSONStorage {
 }
 
 struct JSONStorageImp: JSONStorage {
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
+    private let encoder = JSONEncoder.toSnakeCaseEncoder
+    private let decoder = JSONDecoder.fromSnakeCaseDecoder
     private let baseURL: URL
     private let fileManager: FileManager
     
