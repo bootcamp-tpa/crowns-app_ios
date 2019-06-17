@@ -1,7 +1,8 @@
-protocol GameViewModelDelegate: AnyObject, LoadableViewModelDelegate {
+protocol GameViewModelDelegate: AnyObject {
     func updateFactionsScore(withModel model: FactionsScoreViewModel)
     func updateCard(withModel model: CardViewModel?)
     func updateGameStats(withModel model: GameStatsViewModel)
+    func showLoadingIndicator(_ show: Bool)
     func showErrorAlert(withMessage message: String)
     func showDeathController(forUser user: User, finishedGame: Game)
 }

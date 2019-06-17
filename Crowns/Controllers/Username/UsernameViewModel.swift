@@ -1,5 +1,6 @@
-protocol UsernameViewModelDelegate: AnyObject, LoadableViewModelDelegate {
+protocol UsernameViewModelDelegate: AnyObject {
     func enableStartButton(_ enable: Bool)
+    func showLoadingIndicator(_ show: Bool)
     func showErrorAlert(withMessage message: String)
     func showCrownMeController(forUser user: User)
 }

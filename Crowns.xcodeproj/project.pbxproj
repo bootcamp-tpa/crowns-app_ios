@@ -11,13 +11,14 @@
 		2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494A22AFB67D00973E6F /* UsernameViewModel.swift */; };
 		2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E494C22AFB7CC00973E6F /* ApiError.swift */; };
 		2D0E495222AFD69000973E6F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495122AFD69000973E6F /* Request.swift */; };
-		2D0E495422AFE87E00973E6F /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495322AFE87E00973E6F /* Choice.swift */; };
+		2D0E495422AFE87E00973E6F /* CardChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495322AFE87E00973E6F /* CardChoice.swift */; };
 		2D0E495622AFEF9700973E6F /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495522AFEF9700973E6F /* Deck.swift */; };
 		2D0E495822AFF0D800973E6F /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495722AFF0D800973E6F /* GameViewModel.swift */; };
 		2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */; };
 		2D0E495F22AFFF5600973E6F /* DeathViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */; };
 		2D0E496622B0E78800973E6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496522B0E78800973E6F /* Game.swift */; };
 		2D0E496822B0E93C00973E6F /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496722B0E93C00973E6F /* Faction.swift */; };
+		2D643B1022B7831900124EDA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 2D643B0F22B7831900124EDA /* Localizable.stringsdict */; };
 		2DC8D7FD22B21F530014F885 /* DeckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC8D7FC22B21F530014F885 /* DeckView.xib */; };
 		2DC8D80222B261F00014F885 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80122B261F00014F885 /* UIViewController.swift */; };
 		2DC8D80622B278EE0014F885 /* RequestAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */; };
@@ -30,7 +31,6 @@
 		2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81522B3872E0014F885 /* LeaderboardsViewModel.swift */; };
 		2DC8D81822B38BF50014F885 /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81722B38BF50014F885 /* Highscore.swift */; };
 		2DC8D81A22B38EBC0014F885 /* GameScoreFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */; };
-		2DC8D81D22B394050014F885 /* LoadableViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */; };
 		2DC8D82122B3E14E0014F885 /* JSONCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D82022B3E14E0014F885 /* JSONCoding.swift */; };
 		2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382422AFA7FB000471E2 /* WebService.swift */; };
 		2DFA382722AFA8A4000471E2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA382622AFA8A4000471E2 /* User.swift */; };
@@ -82,13 +82,14 @@
 		2D0E494A22AFB67D00973E6F /* UsernameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewModel.swift; sourceTree = "<group>"; };
 		2D0E494C22AFB7CC00973E6F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2D0E495122AFD69000973E6F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		2D0E495322AFE87E00973E6F /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		2D0E495322AFE87E00973E6F /* CardChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardChoice.swift; sourceTree = "<group>"; };
 		2D0E495522AFEF9700973E6F /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		2D0E495722AFF0D800973E6F /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		2D0E495C22AFFF2D00973E6F /* DeathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewController.swift; sourceTree = "<group>"; };
 		2D0E495E22AFFF5600973E6F /* DeathViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathViewModel.swift; sourceTree = "<group>"; };
 		2D0E496522B0E78800973E6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		2D0E496722B0E93C00973E6F /* Faction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
+		2D643B0F22B7831900124EDA /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		2DC8D7FC22B21F530014F885 /* DeckView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckView.xib; sourceTree = "<group>"; };
 		2DC8D80122B261F00014F885 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthorizer.swift; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		2DC8D81522B3872E0014F885 /* LeaderboardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsViewModel.swift; sourceTree = "<group>"; };
 		2DC8D81722B38BF50014F885 /* Highscore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		2DC8D81922B38EBC0014F885 /* GameScoreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScoreFormatter.swift; sourceTree = "<group>"; };
-		2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableViewModelDelegate.swift; sourceTree = "<group>"; };
 		2DC8D82022B3E14E0014F885 /* JSONCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCoding.swift; sourceTree = "<group>"; };
 		2DFA382422AFA7FB000471E2 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DFA382622AFA8A4000471E2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -234,14 +234,6 @@
 			path = Leadeboards;
 			sourceTree = "<group>";
 		};
-		2DC8D81B22B393F70014F885 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2DC8D81C22B394050014F885 /* LoadableViewModelDelegate.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		2DFA382322AFA7F0000471E2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,7 +250,7 @@
 				2DFA382622AFA8A4000471E2 /* User.swift */,
 				2DFA382822AFA8E0000471E2 /* Card.swift */,
 				2D0E495522AFEF9700973E6F /* Deck.swift */,
-				2D0E495322AFE87E00973E6F /* Choice.swift */,
+				2D0E495322AFE87E00973E6F /* CardChoice.swift */,
 				2D0E494C22AFB7CC00973E6F /* ApiError.swift */,
 				2D0E496522B0E78800973E6F /* Game.swift */,
 				2DC8D81722B38BF50014F885 /* Highscore.swift */,
@@ -310,7 +302,6 @@
 		4DE57A7C224BC12800D37B57 /* Crowns */ = {
 			isa = PBXGroup;
 			children = (
-				2DC8D81B22B393F70014F885 /* Protocols */,
 				2DC8D80022B261E50014F885 /* Extensions */,
 				2DFA382322AFA7F0000471E2 /* Services */,
 				4DE8C2F1225A53720073DCD9 /* Controllers */,
@@ -321,6 +312,7 @@
 				4DE57A84224BC12A00D37B57 /* Assets.xcassets */,
 				4DE57A86224BC12A00D37B57 /* LaunchScreen.storyboard */,
 				4DE57A89224BC12A00D37B57 /* Info.plist */,
+				2D643B0F22B7831900124EDA /* Localizable.stringsdict */,
 			);
 			path = Crowns;
 			sourceTree = "<group>";
@@ -488,6 +480,7 @@
 			files = (
 				4D2556522251076D004D5EFC /* GameStatsView.xib in Resources */,
 				4D25565822510ECD004D5EFC /* FactionScoreView.xib in Resources */,
+				2D643B1022B7831900124EDA /* Localizable.stringsdict in Resources */,
 				4DE57A88224BC12A00D37B57 /* LaunchScreen.storyboard in Resources */,
 				4D85CBD8225134DD008D05FC /* FactionsScoreView.xib in Resources */,
 				4DE57A85224BC12A00D37B57 /* Assets.xcassets in Resources */,
@@ -623,7 +616,6 @@
 				2D0E494622AFB27100973E6F /* UsernameViewController.swift in Sources */,
 				2D0E496622B0E78800973E6F /* Game.swift in Sources */,
 				2D0E494B22AFB67D00973E6F /* UsernameViewModel.swift in Sources */,
-				2DC8D81D22B394050014F885 /* LoadableViewModelDelegate.swift in Sources */,
 				4D24EFF322525E5A00B87D5B /* ScoreView.swift in Sources */,
 				4DE57A80224BC12800D37B57 /* GameViewController.swift in Sources */,
 				2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */,
@@ -643,7 +635,7 @@
 				2DC8D80222B261F00014F885 /* UIViewController.swift in Sources */,
 				2D0E495D22AFFF2E00973E6F /* DeathViewController.swift in Sources */,
 				2DC8D81022B372660014F885 /* LeaderboardsViewController.swift in Sources */,
-				2D0E495422AFE87E00973E6F /* Choice.swift in Sources */,
+				2D0E495422AFE87E00973E6F /* CardChoice.swift in Sources */,
 				2DC8D81322B380BF0014F885 /* HighscoreTableViewCell.swift in Sources */,
 				2DFA382B22AFAB47000471E2 /* JSONStorage.swift in Sources */,
 				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
@@ -713,6 +705,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -774,6 +767,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

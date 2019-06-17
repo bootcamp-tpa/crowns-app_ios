@@ -3,6 +3,15 @@ import UIKit
 class LeaderboardsViewController: UITableViewController {
     private var viewModel: LeaderboardsViewModel!
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerReusables()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfCells()
     }
@@ -12,6 +21,11 @@ class LeaderboardsViewController: UITableViewController {
         let model = viewModel.cellModel(atIndexPath: indexPath)
         cell.bind(withModel: model)
         return cell
+    }
+    
+    private func registerReusables() {
+        let nib = UINib(nibName: "HighscoreTableViewCell", bundle: Bundle.main)
+        tableView.register(nib, forCellReuseIdentifier: "HighscoreTableViewCell")
     }
     
     @IBAction private func didPullToRefresh(_ sender: Any) {

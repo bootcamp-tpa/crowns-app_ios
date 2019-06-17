@@ -44,7 +44,7 @@ extension GameViewController : CardViewDelegate {
     }
 }
 
-extension GameViewController: GameViewModelDelegate, LoadableViewController {
+extension GameViewController: GameViewModelDelegate {
     func updateFactionsScore(withModel model: FactionsScoreViewModel) {
         factionsScoreView.update(withModel: model)
     }
@@ -55,6 +55,14 @@ extension GameViewController: GameViewModelDelegate, LoadableViewController {
 
     func updateGameStats(withModel model: GameStatsViewModel) {
         gameStatsView.update(withModel: model)
+    }
+    
+    func showLoadingIndicator(_ show: Bool) {
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
     }
     
     func showDeathController(forUser user: User, finishedGame: Game) {

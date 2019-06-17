@@ -27,7 +27,15 @@ class DeathViewController: UIViewController {
     }
 }
 
-extension DeathViewController: DeathViewModelDelegate, LoadableViewController {
+extension DeathViewController: DeathViewModelDelegate {
+    func showLoadingIndicator(_ show: Bool) {
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
+    }
+    
     func dismissToCrownMeController() {
         navigationController?.popToRootViewController(animated: true)
     }

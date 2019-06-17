@@ -36,13 +36,21 @@ class UsernameViewController: UIViewController {
     }
 }
 
-extension UsernameViewController: UsernameViewModelDelegate, LoadableViewController {
+extension UsernameViewController: UsernameViewModelDelegate {
     func enableStartButton(_ enable: Bool) {
         startButton.isEnabled = enable
         if enable {
             startButton.backgroundColor = UIColor(red: 219/255, green: 128/255, blue: 102/255, alpha: 1)
         } else {
             startButton.backgroundColor = .lightGray
+        }
+    }
+    
+    func showLoadingIndicator(_ show: Bool) {
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
         }
     }
     
