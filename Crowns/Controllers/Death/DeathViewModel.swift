@@ -2,7 +2,7 @@ protocol DeathViewModelDelegate: AnyObject {
     func showLoadingIndicator(_ show: Bool)
     func dismissToCrownMeController()
     func showErrorAlert(withMessage message: String)
-    func showLeaderboardsController(withHighscores highscores: Highscores)
+    func showLeaderboardsController(withHighscores highscores: [Highscore])
 }
 
 class DeathViewModel {

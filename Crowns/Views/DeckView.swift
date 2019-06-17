@@ -22,7 +22,7 @@ class DeckView: UIView {
     
     func update(withModel model: CardViewModel?) {
         if let model = model {
-            if currentCard == nil { initCard() }
+            initCard()
             currentCardTitleLabel.text = model.title
             currentCard?.update(withImage: model.image)
         } else {
@@ -64,7 +64,6 @@ extension DeckView : CardViewDelegate {
     }
     
     func cardView(_ cardView: CardView, didFinalizeChoice choice: Choice) {
-        if choice != .none { initCard() }
         cardDelegate?.cardView(cardView, didFinalizeChoice: choice)
     }
 }

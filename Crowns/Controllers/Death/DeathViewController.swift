@@ -40,7 +40,7 @@ extension DeathViewController: DeathViewModelDelegate {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    func showLeaderboardsController(withHighscores highscores: Highscores) {
+    func showLeaderboardsController(withHighscores highscores: [Highscore]) {
         let controller = LeaderboardsViewController.instantiate(withHighscores: highscores)
         navigationController?.pushViewController(controller, animated: true)
     }

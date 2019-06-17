@@ -16,7 +16,7 @@ struct Request {
         )
     }
     
-    static func submitHighscore(_ highscore: Highscore) -> URLRequest {
+    static func submitHighscore(_ highscore: SubmitHighscore) -> URLRequest {
         return request(
             path: "highscores/submit",
             method: .post,

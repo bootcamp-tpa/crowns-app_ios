@@ -11,7 +11,7 @@ protocol WebService {
         _ highscore: Highscore,
         completion: @escaping (Result<Void, ApiError>) -> Void
     )
-    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void)
+    func getHighscores(completion: @escaping (Result<[Highscore], ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
@@ -44,17 +44,19 @@ final class WebServiceImp: WebService {
         _ highscore: Highscore,
         completion: @escaping (Result<Void, ApiError>) -> Void
     ) {
-        let comp: (Result<String, ApiError>) -> Void = { completion($0.map { _ in () }) }
+        let mappedCompletion: (Result<String, ApiError>) -> Void = { completion($0.map { _ in () }) }
+        let submitHighscore = SubmitHighscore(highscore: highscore)
         authorizedRequest(
-            urlRequest: Request.submitHighscore(highscore),
-            completion: comp
+            urlRequest: Request.submitHighscore(submitHighscore),
+            completion: mappedCompletion
         )
     }
     
-    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void) {
+    func getHighscores(completion: @escaping (Result<[Highscore], ApiError>) -> Void) {
+        let mappedCompletion: (Result<Highscores, ApiError>) -> Void = { completion($0.map { $0.highscores }) }
         authorizedRequest(
             urlRequest: Request.getHighscores(),
-            completion: completion
+            completion: mappedCompletion
         )
     }
     

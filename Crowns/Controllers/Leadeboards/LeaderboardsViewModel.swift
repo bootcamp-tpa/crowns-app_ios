@@ -1,18 +1,19 @@
 import Foundation
 
 protocol LeaderboardsViewModelDelegate: AnyObject {
+    func endRefreshing()
     func reloadTable()
     func showErrorAlert(withMessage message: String)
 }
 
 class LeaderboardsViewModel {
     weak var delegate: LeaderboardsViewModelDelegate!
-    private var highscores: Highscores
+    private var highscores: [Highscore]
     private let webService: WebService
     private let scoreFormatter: GameScoreFormatter
     
     init(
-        highscores: Highscores,
+        highscores: [Highscore],
         webService: WebService,
         scoreFormatter: GameScoreFormatter
     ) {
@@ -25,7 +26,8 @@ class LeaderboardsViewModel {
         webService.getHighscores(completion: { [weak self] response in
             switch response {
             case .success(let highscores):
-                self?.highscores = highscores
+                self?.highscores = highscores + highscores + highscores + highscores + highscores
+                self?.delegate.endRefreshing()
                 self?.delegate.reloadTable()
             case .failure(let error):
                 self?.delegate.showErrorAlert(withMessage: error.title)
@@ -34,14 +36,14 @@ class LeaderboardsViewModel {
     }
     
     func numberOfCells() -> Int {
-        return highscores.highscores.count
+        return highscores.count
     }
     
     func cellModel(atIndexPath indexPath: IndexPath) -> HighscoreCellModel {
         let index = indexPath.row
-        let highscore = highscores.highscores[index]
+        let highscore = highscores[index]
         return HighscoreCellModel(
-            rank: String(index),
+            rank: String(index + 1),
             username: highscore.name,
             score: mapHighscoreToScoreString(highscore)
         )

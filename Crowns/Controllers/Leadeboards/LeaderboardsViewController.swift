@@ -12,6 +12,16 @@ class LeaderboardsViewController: UITableViewController {
         registerReusables()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfCells()
     }
@@ -34,13 +44,17 @@ class LeaderboardsViewController: UITableViewController {
 }
 
 extension LeaderboardsViewController: LeaderboardsViewModelDelegate {
+    func endRefreshing() {
+        refreshControl!.endRefreshing()
+    }
+    
     func reloadTable() {
         tableView.reloadData()
     }
 }
 
 extension LeaderboardsViewController {
-    static func instantiate(withHighscores highscores: Highscores) -> UIViewController {
+    static func instantiate(withHighscores highscores: [Highscore]) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "LeaderboardsViewController") as! LeaderboardsViewController
         let viewModel = LeaderboardsViewModel(
