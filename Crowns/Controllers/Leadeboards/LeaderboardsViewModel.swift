@@ -26,7 +26,7 @@ class LeaderboardsViewModel {
         webService.getHighscores(completion: { [weak self] response in
             switch response {
             case .success(let highscores):
-                self?.highscores = highscores + highscores + highscores + highscores + highscores
+                self?.highscores = highscores
                 self?.delegate.endRefreshing()
                 self?.delegate.reloadTable()
             case .failure(let error):

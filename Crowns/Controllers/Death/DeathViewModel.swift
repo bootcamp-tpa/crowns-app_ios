@@ -26,10 +26,41 @@ class DeathViewModel {
     }
     
     func viewDidLoad() {
+        submitHighscore()
+    }
+    
+    private func submitHighscore() {
+        delegate.showLoadingIndicator(true)
         webService.submitHighscore(
             mapGameToHighscore(finishedGame, forUser: user),
-            completion: { _ in }
+            completion: { [weak self] response in
+                self?.delegate.showLoadingIndicator(false)
+                switch response {
+                case .success: break
+                case .failure: self?.showRetryAlert()
+                }
+            }
         )
+    }
+    
+    private func showRetryAlert() {
+        let cancelActionModel = AlertActionModel(
+            title: "Cancel",
+            style: .default,
+            handler: nil
+        )
+        let retryActionModel = AlertActionModel(
+            title: "Retry",
+            style: .cancel,
+            handler: { [weak self] _ in
+                self?.submitHighscore()
+        })
+        let alertModel = AlertControllerModel(
+            title: "We were not able to submit your highscore.",
+            message: "Do you wish to retry?",
+            actionsModels: [cancelActionModel, retryActionModel]
+        )
+        delegate.showAlert(withModel: alertModel)
     }
     
     func didTapCheckLeaderboardsButton() {

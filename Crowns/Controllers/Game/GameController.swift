@@ -37,15 +37,14 @@ class GameController {
     }
     
     private func getTurnOutcome() -> TurnOutcome {
-        return .death
-//        if game.currentCard == nil
-//           || game.currentCard!.cardType == .death
-//           || game.kingAge > GameController.maxKingAge
-//           || game.factionScores.contains(where: { $0 >= 100 || $0 <= 0 }) {
-//            return .death
-//        } else {
-//            return .success
-//        }
+        if game.currentCard == nil
+           || game.currentCard!.cardType == .death
+           || game.kingAge > GameController.maxKingAge
+           || game.factionScores.contains(where: { $0 >= 100 || $0 <= 0 }) {
+            return .death
+        } else {
+            return .success
+        }
     }
     
 }
