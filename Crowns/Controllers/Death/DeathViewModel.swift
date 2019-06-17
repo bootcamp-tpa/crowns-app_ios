@@ -1,7 +1,7 @@
 protocol DeathViewModelDelegate: AnyObject {
     func showLoadingIndicator(_ show: Bool)
     func dismissToCrownMeController()
-    func showErrorAlert(withMessage message: String)
+    func showAlert(withModel model: AlertControllerModel)
     func showLeaderboardsController(withHighscores highscores: [Highscore])
 }
 
@@ -38,7 +38,7 @@ class DeathViewModel {
             delegate?.showLoadingIndicator(false)
             switch response {
             case .success(let highscores): delegate?.showLeaderboardsController(withHighscores: highscores)
-            case .failure(let error): delegate?.showErrorAlert(withMessage: error.title)
+            case .failure(let error): delegate?.showAlert(withModel: .plain(withMessage: error.title))
             }
         })
     }

@@ -3,7 +3,7 @@ protocol GameViewModelDelegate: AnyObject {
     func updateCard(withModel model: CardViewModel?)
     func updateGameStats(withModel model: GameStatsViewModel)
     func showLoadingIndicator(_ show: Bool)
-    func showErrorAlert(withMessage message: String)
+    func showAlert(withModel model: AlertControllerModel)
     func showDeathController(forUser user: User, finishedGame: Game)
 }
 
@@ -53,7 +53,7 @@ class GameViewModel {
             self?.delegate.showLoadingIndicator(false)
             switch result {
             case .success(let deck): self?.attemptToCreateGame(withDeck: deck)
-            case .failure(let error): self?.delegate.showErrorAlert(withMessage: error.title)
+            case .failure(let error): self?.delegate.showAlert(withModel: .plain(withMessage: error.title))
             }
         })
     }
@@ -64,7 +64,7 @@ class GameViewModel {
             gameController = GameController(game: game)
             updateDelegate()
         } else {
-            delegate.showErrorAlert(withMessage: ApiError.unknown.title)
+            delegate.showAlert(withModel: .plain(withMessage: ApiError.unknown.title))
         }
     }
     

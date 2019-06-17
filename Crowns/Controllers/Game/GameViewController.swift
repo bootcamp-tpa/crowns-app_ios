@@ -29,7 +29,7 @@ class GameViewController: UIViewController {
     }
 }
 
-extension GameViewController : CardViewDelegate {
+extension GameViewController: CardViewDelegate {
     func cardView(_ cardView: CardView, didDisplayChoice choice: Choice) {
         if let choiceName = viewModel.choiceName(for: choice) {
             cardView.update(withChoiceName: choiceName)

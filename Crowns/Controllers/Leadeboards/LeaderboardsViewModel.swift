@@ -3,7 +3,7 @@ import Foundation
 protocol LeaderboardsViewModelDelegate: AnyObject {
     func endRefreshing()
     func reloadTable()
-    func showErrorAlert(withMessage message: String)
+    func showAlert(withModel model: AlertControllerModel)
 }
 
 class LeaderboardsViewModel {
@@ -30,7 +30,7 @@ class LeaderboardsViewModel {
                 self?.delegate.endRefreshing()
                 self?.delegate.reloadTable()
             case .failure(let error):
-                self?.delegate.showErrorAlert(withMessage: error.title)
+                self?.delegate.showAlert(withModel: .plain(withMessage: error.title))
             }
         })
     }

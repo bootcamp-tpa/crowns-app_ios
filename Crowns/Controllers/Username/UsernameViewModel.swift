@@ -1,7 +1,7 @@
 protocol UsernameViewModelDelegate: AnyObject {
     func enableStartButton(_ enable: Bool)
     func showLoadingIndicator(_ show: Bool)
-    func showErrorAlert(withMessage message: String)
+    func showAlert(withModel model: AlertControllerModel)
     func showCrownMeController(forUser user: User)
 }
 
@@ -42,7 +42,7 @@ class UsernameViewModel {
                     storage.store(user: user)
                     delegate?.showCrownMeController(forUser: user)
                 case .failure(let error):
-                    delegate?.showErrorAlert(withMessage: error.displayableTitle)
+                    delegate?.showAlert(withModel: .plain(withMessage: error.displayableTitle))
                 }
         })
     }
