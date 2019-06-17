@@ -1,8 +1,8 @@
 protocol DeathViewModelDelegate: AnyObject {
     func showLoadingIndicator(_ show: Bool)
     func dismissToCrownMeController()
-    func showErrorAlert(withMessage message: String)
-    func showLeaderboardsController(withHighscores highscores: Highscores)
+    func showAlert(withModel model: AlertControllerModel)
+    func showLeaderboardsController(withHighscores highscores: [Highscore])
 }
 
 class DeathViewModel {
@@ -26,10 +26,41 @@ class DeathViewModel {
     }
     
     func viewDidLoad() {
+        submitHighscore()
+    }
+    
+    private func submitHighscore() {
+        delegate.showLoadingIndicator(true)
         webService.submitHighscore(
             mapGameToHighscore(finishedGame, forUser: user),
-            completion: { _ in }
+            completion: { [weak self] response in
+                self?.delegate.showLoadingIndicator(false)
+                switch response {
+                case .success: break
+                case .failure: self?.showRetryAlert()
+                }
+            }
         )
+    }
+    
+    private func showRetryAlert() {
+        let cancelActionModel = AlertActionModel(
+            title: "Cancel",
+            style: .default,
+            handler: nil
+        )
+        let retryActionModel = AlertActionModel(
+            title: "Retry",
+            style: .cancel,
+            handler: { [weak self] _ in
+                self?.submitHighscore()
+        })
+        let alertModel = AlertControllerModel(
+            title: "We were not able to submit your highscore.",
+            message: "Do you wish to retry?",
+            actionsModels: [cancelActionModel, retryActionModel]
+        )
+        delegate.showAlert(withModel: alertModel)
     }
     
     func didTapCheckLeaderboardsButton() {
@@ -38,7 +69,7 @@ class DeathViewModel {
             delegate?.showLoadingIndicator(false)
             switch response {
             case .success(let highscores): delegate?.showLeaderboardsController(withHighscores: highscores)
-            case .failure(let error): delegate?.showErrorAlert(withMessage: error.title)
+            case .failure(let error): delegate?.showAlert(withModel: .plain(withMessage: error.title))
             }
         })
     }

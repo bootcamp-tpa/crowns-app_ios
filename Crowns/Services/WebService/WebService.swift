@@ -11,7 +11,7 @@ protocol WebService {
         _ highscore: Highscore,
         completion: @escaping (Result<Void, ApiError>) -> Void
     )
-    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void)
+    func getHighscores(completion: @escaping (Result<[Highscore], ApiError>) -> Void)
 }
 
 final class WebServiceImp: WebService {
@@ -29,13 +29,15 @@ final class WebServiceImp: WebService {
     ) {
         request(
             urlRequest: Request.createUser(username: username),
+            authorized: false,
             completion: completion
         )
     }
 
     func createGame(completion: @escaping (Result<Deck, ApiError>) -> Void) {
-        authorizedRequest(
+        request(
             urlRequest: Request.createGame(),
+            authorized: true,
             completion: completion
         )
     }
@@ -44,37 +46,72 @@ final class WebServiceImp: WebService {
         _ highscore: Highscore,
         completion: @escaping (Result<Void, ApiError>) -> Void
     ) {
-        let comp: (Result<String, ApiError>) -> Void = { completion($0.map { _ in () }) }
-        authorizedRequest(
-            urlRequest: Request.submitHighscore(highscore),
-            completion: comp
+        let mappedCompletion: (Result<Data, ApiError>) -> Void = { completion($0.map { _ in () }) }
+        let submitHighscore = SubmitHighscore(highscore: highscore)
+        requestData(
+            urlRequest: Request.submitHighscore(submitHighscore),
+            authorized: true,
+            completion: mappedCompletion
         )
     }
     
-    func getHighscores(completion: @escaping (Result<Highscores, ApiError>) -> Void) {
-        authorizedRequest(
+    func getHighscores(completion: @escaping (Result<[Highscore], ApiError>) -> Void) {
+        let mappedCompletion: (Result<Highscores, ApiError>) -> Void = { completion($0.map { $0.highscores }) }
+        request(
             urlRequest: Request.getHighscores(),
-            completion: completion
+            authorized: true,
+            completion: mappedCompletion
         )
-    }
-    
-    private func authorizedRequest<T: Decodable>(
-        urlRequest: URLRequest,
-        completion: @escaping (Result<T, ApiError>) -> Void
-    ) {
-        let authorizationOutcome = requestAuthorizer.authorize(urlRequest)
-        switch authorizationOutcome {
-        case .success(let authorizedURLRequest):
-            request(urlRequest: authorizedURLRequest, completion: completion)
-        case .failure(let error):
-            completion(.failure(error))
-        }
-        
     }
     
     private func request<T: Decodable>(
         urlRequest: URLRequest,
+        authorized: Bool,
         completion: @escaping (Result<T, ApiError>) -> Void
+    ) {
+        requestData(
+            urlRequest: urlRequest,
+            authorized: authorized,
+            completion: { result in
+                let decodedResult = result.flatMap { data -> Result<T, ApiError> in
+                    do {
+                        let decoded = try WebServiceImp.decoder.decode(T.self, from: data)
+                        return .success(decoded)
+                    } catch {
+                        return .failure(.unknown)
+                    }
+                }
+                completion(decodedResult)
+        })
+    }
+    
+    private func requestData(
+        urlRequest: URLRequest,
+        authorized: Bool,
+        completion: @escaping (Result<Data, ApiError>) -> Void
+    ) {
+        if authorized {
+            let authorizationOutcome = requestAuthorizer.authorize(urlRequest)
+            switch authorizationOutcome {
+            case .success(let authorizedURLRequest):
+                requestData(
+                    urlRequest: authorizedURLRequest,
+                    completion: completion
+                )
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        } else {
+            requestData(
+                urlRequest: urlRequest,
+                completion: completion
+            )
+        }
+    }
+    
+    private func requestData(
+        urlRequest: URLRequest,
+        completion: @escaping (Result<Data, ApiError>) -> Void
     ) {
         print(urlRequest.curlString)
         session.dataTask(
@@ -102,19 +139,15 @@ final class WebServiceImp: WebService {
                         sendAPIError()
                         return
                     }
-                    do {
-                        let result = try WebServiceImp.decoder.decode(T.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(result))
-                        }
-                    } catch {
-                        sendAPIError()
+                    DispatchQueue.main.async {
+                        completion(.success(data))
                     }
                 default:
                     sendAPIError()
                 }
         }
             ).resume()
+        
     }
 }
 

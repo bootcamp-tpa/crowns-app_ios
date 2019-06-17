@@ -56,7 +56,7 @@ extension UsernameViewController: UsernameViewModelDelegate {
     
     func showCrownMeController(forUser user: User) {
         let controller = CrownMeViewController.instantiate(withUser: user)
-        let navigationController = UINavigationController(rootViewController: controller)
+        let navigationController = CustomNavigationController(rootViewController: controller)
         navigationController.setNavigationBarHidden(true, animated: false)
         present(navigationController, animated: true)
     }

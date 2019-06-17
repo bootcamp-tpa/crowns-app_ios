@@ -1,5 +1,9 @@
-struct Highscores: Codable {
+struct Highscores: Decodable {
     let highscores: [Highscore]
+}
+
+struct SubmitHighscore: Encodable {
+    let highscore: Highscore
 }
 
 struct Highscore: Codable {

@@ -33,9 +33,9 @@ class CardView: UIView {
     
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     
-    var appliedTranslation : CGFloat = 0
-    var recognizedChoice : Choice = .none
-    var displayingChoice : Choice = .none
+    var appliedTranslation: CGFloat = 0
+    var recognizedChoice: Choice = .none
+    var displayingChoice: Choice = .none
 
     weak var delegate: CardViewDelegate?
 
@@ -72,13 +72,11 @@ class CardView: UIView {
         contentView.layer.shadowOpacity = 1
         contentView.layer.shadowRadius = 4
         
-        
-        
         addSubview(contentView)
     }
     
     @IBAction private func handlePan(_ gestureRecognizer : UIPanGestureRecognizer) {
-        let maxMovementValue = frame.width / 4.0
+        let maxMovementValue = frame.width / 5.0
         var move : CATransform3D?
         var rotate : CATransform3D?
         
@@ -137,15 +135,13 @@ class CardView: UIView {
         case .none: break
         }
         
-        if (choice == .none) {
+        if choice == .none {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.choiceBackgroundView.alpha = 0
-                self.currentChoiceLabel.alpha = 0
             }, completion: nil)
         } else if choice != displayingChoice {
             UIView.animate(withDuration: 0.5, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.choiceBackgroundView.alpha = 1
-                self.currentChoiceLabel.alpha = 1
             }, completion: nil)
         }
         displayingChoice = choice

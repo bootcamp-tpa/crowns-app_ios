@@ -29,10 +29,11 @@ class GameViewController: UIViewController {
     }
 }
 
-extension GameViewController : CardViewDelegate {
+extension GameViewController: CardViewDelegate {
     func cardView(_ cardView: CardView, didDisplayChoice choice: Choice) {
-        let choiceName = viewModel.choiceName(for: choice)
-        cardView.update(withChoiceName: choiceName)
+        if let choiceName = viewModel.choiceName(for: choice) {
+            cardView.update(withChoiceName: choiceName)
+        }
 
         let factionsModes = viewModel.factionsScoreViewModes(for: choice)
         factionsScoreView.update(withModes: factionsModes)

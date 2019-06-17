@@ -19,6 +19,8 @@
 		2D0E496622B0E78800973E6F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496522B0E78800973E6F /* Game.swift */; };
 		2D0E496822B0E93C00973E6F /* Faction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E496722B0E93C00973E6F /* Faction.swift */; };
 		2D643B1022B7831900124EDA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 2D643B0F22B7831900124EDA /* Localizable.stringsdict */; };
+		2D643B1222B7A15900124EDA /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D643B1122B7A15900124EDA /* CustomNavigationController.swift */; };
+		2D643B1422B7C83400124EDA /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D643B1322B7C83400124EDA /* UIAlertController.swift */; };
 		2DC8D7FD22B21F530014F885 /* DeckView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DC8D7FC22B21F530014F885 /* DeckView.xib */; };
 		2DC8D80222B261F00014F885 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80122B261F00014F885 /* UIViewController.swift */; };
 		2DC8D80622B278EE0014F885 /* RequestAuthorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */; };
@@ -90,6 +92,8 @@
 		2D0E496522B0E78800973E6F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		2D0E496722B0E93C00973E6F /* Faction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faction.swift; sourceTree = "<group>"; };
 		2D643B0F22B7831900124EDA /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		2D643B1122B7A15900124EDA /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		2D643B1322B7C83400124EDA /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		2DC8D7FC22B21F530014F885 /* DeckView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeckView.xib; sourceTree = "<group>"; };
 		2DC8D80122B261F00014F885 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		2DC8D80522B278EE0014F885 /* RequestAuthorizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAuthorizer.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 			children = (
 				2DC8D80122B261F00014F885 /* UIViewController.swift */,
 				2DC8D82022B3E14E0014F885 /* JSONCoding.swift */,
+				2D643B1322B7C83400124EDA /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +348,7 @@
 				2D0E495B22AFFF2200973E6F /* Death */,
 				2D0E494922AFB66900973E6F /* Username */,
 				2D0E494722AFB62B00973E6F /* Game */,
+				2D643B1122B7A15900124EDA /* CustomNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -621,6 +627,7 @@
 				2DC8D81622B3872E0014F885 /* LeaderboardsViewModel.swift in Sources */,
 				2DC8D82122B3E14E0014F885 /* JSONCoding.swift in Sources */,
 				2DC8D81822B38BF50014F885 /* Highscore.swift in Sources */,
+				2D643B1222B7A15900124EDA /* CustomNavigationController.swift in Sources */,
 				4D3EC8AC224C170B0000CF5C /* CardView.swift in Sources */,
 				4D25565022510760004D5EFC /* GameStatsView.swift in Sources */,
 				4DE8C2F3225A58910073DCD9 /* DeckView.swift in Sources */,
@@ -640,6 +647,7 @@
 				2DFA382B22AFAB47000471E2 /* JSONStorage.swift in Sources */,
 				2DFA382522AFA7FB000471E2 /* WebService.swift in Sources */,
 				2D0E494D22AFB7CC00973E6F /* ApiError.swift in Sources */,
+				2D643B1422B7C83400124EDA /* UIAlertController.swift in Sources */,
 				2DC8D80B22B27F520014F885 /* CrownMeViewModel.swift in Sources */,
 				4D25565422510E91004D5EFC /* FactionsScoreView.swift in Sources */,
 				2DC8D81A22B38EBC0014F885 /* GameScoreFormatter.swift in Sources */,
